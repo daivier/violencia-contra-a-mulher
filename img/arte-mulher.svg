@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480">
+  <defs>
+    <linearGradient id="pele" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6bf9f"/>
+      <stop offset="1" stop-color="#eaa483"/>
+    </linearGradient>
+    <linearGradient id="cabelo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a1d29"/>
+      <stop offset="1" stop-color="#1f0f17"/>
+    </linearGradient>
+    <linearGradient id="mao" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a5cc4"/>
+      <stop offset="1" stop-color="#5f3794"/>
+    </linearGradient>
+    <linearGradient id="blusa" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e2556f"/>
+      <stop offset="1" stop-color="#b93a55"/>
+    </linearGradient>
+    <radialGradient id="hematoma" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#6a2f7d" stop-opacity=".75"/>
+      <stop offset=".6" stop-color="#8a3f86" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#8a3f86" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- cabelo de trás -->
+  <path d="M200 54 C 118 52, 68 118, 74 196 C 76 236, 56 262, 66 300 C 74 332, 50 354, 58 390 C 66 420, 44 444, 38 480 L 362 480 C 356 444, 334 420, 342 390 C 350 354, 326 332, 334 300 C 344 262, 324 236, 326 196 C 332 118, 282 56, 200 54 Z" fill="url(#cabelo)"/>
+
+  <!-- pescoço e blusa -->
+  <path d="M170 286 L 230 286 L 233 366 C 214 376, 186 376, 167 366 Z" fill="#df9877"/>
+  <path d="M170 322 C 186 336, 214 336, 230 322 L 230 298 L 170 298 Z" fill="#c9805f" opacity=".55"/>
+  <path d="M84 480 C 92 410, 134 374, 166 362 C 184 384, 216 384, 234 362 C 266 374, 308 410, 316 480 Z" fill="url(#blusa)"/>
+
+  <!-- mechas onduladas sobre os ombros -->
+  <path d="M126 212 C 104 260, 126 300, 108 344 C 92 384, 118 410, 96 446 C 90 462, 108 468, 118 450 C 142 410, 124 380, 140 344 C 156 306, 136 270, 152 238 Z" fill="url(#cabelo)"/>
+  <path d="M274 212 C 296 260, 274 300, 292 344 C 308 384, 282 410, 304 446 C 310 462, 292 468, 282 450 C 258 410, 276 380, 260 344 C 244 306, 264 270, 248 238 Z" fill="url(#cabelo)"/>
+
+  <!-- orelhas e rosto -->
+  <ellipse cx="123" cy="214" rx="12" ry="20" fill="#e6a080"/>
+  <ellipse cx="277" cy="214" rx="12" ry="20" fill="#e6a080"/>
+  <path d="M200 110 C 249 110, 279 150, 279 206 C 279 263, 247 308, 200 310 C 153 308, 121 263, 121 206 C 121 150, 151 110, 200 110 Z" fill="url(#pele)"/>
+
+  <!-- hematoma no olho -->
+  <ellipse cx="236" cy="220" rx="30" ry="19" fill="url(#hematoma)"/>
+
+  <!-- franja e mechas da frente -->
+  <path d="M206 90 C 140 88, 106 138, 114 214 C 126 166, 160 134, 216 126 C 248 122, 272 146, 286 200 C 292 130, 262 92, 206 90 Z" fill="url(#cabelo)"/>
+  <path d="M214 96 C 194 120, 170 134, 138 154 C 164 128, 182 112, 196 94 Z" fill="url(#cabelo)"/>
+  <path d="M118 178 C 110 232, 116 272, 136 304 C 132 262, 134 222, 144 190 Z" fill="url(#cabelo)"/>
+  <path d="M282 178 C 290 232, 284 272, 264 304 C 268 262, 266 222, 256 190 Z" fill="url(#cabelo)"/>
+  <g fill="none" stroke="#6b3546" stroke-width="3" stroke-linecap="round" opacity=".7">
+    <path d="M168 104 C 146 116, 132 140, 126 170"/>
+    <path d="M226 104 C 250 114, 268 134, 276 164"/>
+    <path d="M92 250 C 80 290, 98 330, 84 370 C 76 394, 86 414, 74 440"/>
+    <path d="M308 250 C 320 290, 302 330, 316 370 C 324 394, 314 414, 326 440"/>
+    <path d="M200 66 C 170 70, 150 82, 136 100"/>
+  </g>
+
+  <!-- sobrancelhas preocupadas -->
+  <g fill="none" stroke="#2b1520" stroke-width="6" stroke-linecap="round">
+    <path d="M146 190 Q 166 178 188 172"/>
+    <path d="M254 190 Q 234 178 212 172"/>
+  </g>
+
+  <!-- olhos -->
+  <g>
+    <path d="M146 210 Q 168 194 190 210 Q 168 223 146 210 Z" fill="#ffffff"/>
+    <circle cx="169" cy="209" r="8.5" fill="#4a2a1f"/>
+    <circle cx="169" cy="209" r="4.2" fill="#160b08"/>
+    <circle cx="172" cy="205.5" r="2.4" fill="#ffffff"/>
+    <path d="M143 209 Q 168 189 193 207" fill="none" stroke="#2b1520" stroke-width="3.6" stroke-linecap="round"/>
+    <path d="M150 216 Q 168 224 186 215" fill="none" stroke="#b9765c" stroke-width="1.8" stroke-linecap="round"/>
+
+    <path d="M210 210 Q 232 194 254 210 Q 232 223 210 210 Z" fill="#ffffff"/>
+    <circle cx="231" cy="209" r="8.5" fill="#4a2a1f"/>
+    <circle cx="231" cy="209" r="4.2" fill="#160b08"/>
+    <circle cx="234" cy="205.5" r="2.4" fill="#ffffff"/>
+    <path d="M207 207 Q 232 189 257 209" fill="none" stroke="#2b1520" stroke-width="3.6" stroke-linecap="round"/>
+    <path d="M214 215 Q 232 224 250 216" fill="none" stroke="#9a5a6e" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+
+  <!-- lágrima e nariz -->
+  <path d="M150 224 C 145 235, 145 243, 151 243 C 157 243, 156 235, 150 224 Z" fill="#cfe9ff" opacity=".95"/>
+  <path d="M199 214 C 197 232, 192 244, 200 249 C 206 251, 211 247, 211 245" fill="none" stroke="#c4785a" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- braço e mão tapando a boca -->
+  <path d="M318 236 C 352 232, 384 236, 400 240 L 400 334 C 378 330, 348 328, 318 330 Z" fill="url(#mao)"/>
+  <path d="M322 236 C 280 232, 226 238, 172 250 C 150 255, 146 272, 164 278 C 150 286, 152 302, 170 304 C 158 314, 166 330, 184 326 C 180 340, 192 348, 206 342 C 240 336, 284 330, 322 328 Z" fill="url(#mao)"/>
+  <path d="M314 238 C 288 224, 244 220, 216 228 C 204 232, 206 244, 220 244 C 248 242, 280 246, 312 254 Z" fill="#9468cf"/>
+  <g fill="none" stroke="#4b2878" stroke-width="2.6" stroke-linecap="round" opacity=".85">
+    <path d="M166 278 C 200 274, 242 270, 286 268"/>
+    <path d="M170 304 C 204 300, 240 296, 278 294"/>
+    <path d="M184 326 C 212 322, 244 318, 274 316"/>
+  </g>
+  <g fill="none" stroke="#b796e6" stroke-width="3" stroke-linecap="round" opacity=".7">
+    <path d="M178 258 C 200 254, 222 252, 240 251"/>
+    <path d="M176 284 C 196 282, 214 280, 230 279"/>
+    <path d="M182 310 C 200 308, 216 306, 230 305"/>
+  </g>
+</svg>

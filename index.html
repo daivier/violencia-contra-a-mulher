@@ -36,14 +36,9 @@
   --f-display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
   --f-body:"Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --r:14px;
-  /* topo: mesmo lilás da ilustração, igual nos dois temas */
-  --hero-a:#fcf3ff;
-  --hero-b:#f3e5fc;
-  --hero-c:#e8cffa;
-  --hero-ink:#2a1235;
-  --hero-deep:#3d1452;
-  --hero-violet:#9a5bd0;
-  --hero-muted:#55396a;
+  /* topo: roxo mais claro que a barra de navegação, igual nos dois temas */
+  --hero-a:#7a3fa6;
+  --hero-b:#5a2a80;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -95,22 +90,19 @@ p{margin:0}
 @media (max-width:640px){.exit small{display:none}.brand span.long{display:none}}
 
 /* ---------- hero ---------- */
-/* topo no estilo do cartaz: lilás claro igual ao fundo da ilustração (mesmo visual nos dois temas) */
-.hero{background:linear-gradient(115deg,var(--hero-a) 0%,var(--hero-b) 52%,var(--hero-c) 100%);color:var(--hero-ink);position:relative;overflow:hidden;border-top:5px solid var(--hero-violet)}
-.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(16px,4vw,48px);align-items:center;padding-block:clamp(32px,5vw,64px) clamp(48px,7vw,90px)}
-.hero-title{display:flex;align-items:center;gap:clamp(10px,2vw,22px)}
-.laco{width:clamp(54px,8vw,112px);height:auto;flex:none;filter:drop-shadow(0 10px 14px rgba(61,20,82,.25))}
-.tagline{font-style:italic;font-weight:800;font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.25;color:var(--hero-deep);margin-top:6px}
-.swoosh{display:block;width:min(300px,80%);height:16px;margin:8px 0 18px}
+.hero{background:linear-gradient(135deg,var(--hero-a),var(--hero-b));color:var(--on-band);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1.2px,transparent 1.3px);background-size:22px 22px;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(36px,6vw,72px) clamp(48px,7vw,90px)}
 .eyebrow{display:inline-flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
 .chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
 .chip.sun{background:var(--sun);color:var(--sun-ink);border-color:transparent}
-.hero h1{font-size:clamp(2.3rem,6.4vw,5rem);font-weight:800;font-stretch:75%;letter-spacing:-.005em;line-height:.98;margin:0;text-transform:uppercase}
-.hero h1 .l1{display:block;color:var(--hero-deep)}
-.hero h1 .l2{display:block;color:var(--hero-violet)}
-.hero h1 .mark{display:inline-block;margin-top:.1em;padding:.04em .2em .08em;border-radius:.14em;background:var(--hero-deep);color:#ffffff;white-space:nowrap;box-shadow:0 12px 26px -12px rgba(61,20,82,.65)}
-.hero .lead{font-size:clamp(1rem,1.5vw,1.15rem);color:var(--hero-muted);max-width:50ch}
-.hero .lead strong{color:var(--hero-deep)}
+.hero h1{font-size:clamp(2.6rem,7.4vw,5.6rem);font-weight:800;font-stretch:75%;letter-spacing:-.01em;margin:0 0 18px;text-transform:uppercase}
+.hero h1 .mark{position:relative;white-space:nowrap;color:var(--sun)}
+.hero h1 .mark svg{position:absolute;left:-2%;bottom:-.12em;width:104%;height:.32em;overflow:visible}
+.hero h1 .mark path{fill:none;stroke:var(--coral);stroke-width:9;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:0;animation:scribble 1.4s .4s ease-out backwards}
+@keyframes scribble{from{stroke-dashoffset:420}}
+.hero .lead{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--on-band-muted);max-width:52ch}
+.hero .lead strong{color:var(--on-band)}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .chip.name{background:var(--on-band);color:var(--plum);border-color:transparent}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:13px 22px;font-weight:800;font-size:.98rem;text-decoration:none;transition:transform .15s ease,box-shadow .2s,filter .2s;will-change:transform}
@@ -129,9 +121,9 @@ p{margin:0}
 .btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
 
 .hero-art{position:relative;align-self:stretch;display:flex;align-items:flex-end;justify-content:center}
-.hero-photo{margin:0 0 calc(-1 * clamp(48px,7vw,90px));width:min(540px,100%);aspect-ratio:1200/1427}
-/* a ilustração mantém o próprio fundo lilás e se dissolve no fundo do topo */
-.hero-photo img{width:100%;height:100%;object-fit:cover;display:block;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 18%,#000 95%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 12%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 18%,#000 95%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 12%);mask-composite:intersect}
+.hero-art::before{content:"";position:absolute;left:8%;right:8%;top:10%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,214,240,.30),rgba(255,214,240,.08) 70%,transparent)}
+.hero-photo{position:relative;margin:0 0 calc(-1 * clamp(48px,7vw,90px));width:min(520px,100%);aspect-ratio:400/480}
+.hero-photo img{width:100%;height:100%;display:block;filter:drop-shadow(0 20px 30px rgba(30,6,44,.35));-webkit-mask-image:linear-gradient(to right,#000 86%,transparent 100%);mask-image:linear-gradient(to right,#000 86%,transparent 100%)}
 .sheet-demo{position:relative;width:min(300px,72%);aspect-ratio:210/297;max-width:100%;background:var(--paper);color:var(--paper-ink);border-radius:4px;transform:rotate(-3deg);box-shadow:0 30px 50px -20px rgba(0,0,0,.6);padding:20px 18px;display:flex;flex-direction:column;z-index:2;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .sheet-demo:hover{transform:rotate(-1deg) scale(1.02)}
 .sheet-demo .q{font-family:var(--f-body);font-size:1.02rem;line-height:1.25;font-weight:800;color:var(--plum)}
@@ -151,7 +143,7 @@ p{margin:0}
 .sticker.s1{background:var(--sun);color:var(--sun-ink);left:6%;bottom:12%;transform:rotate(-7deg)}
 .sticker.s2{background:var(--coral);color:#fff;right:-2%;top:44%;transform:rotate(6deg);animation-delay:-2s}
 @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -8px}}
-.scroll-cue{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);color:var(--hero-violet);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:2px}
+.scroll-cue{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);color:var(--on-band-muted);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:2px}
 .scroll-cue svg{width:18px;animation:bob 2s ease-in-out infinite}
 @media (max-width:860px){
   .hero .wrap{grid-template-columns:1fr}
@@ -514,16 +506,7 @@ footer .logos img{height:64px;width:auto;max-width:100%}
 <section class="hero" id="inicio">
   <div class="wrap">
     <div>
-      <div class="hero-title">
-        <svg class="laco" viewBox="0 0 120 200" aria-hidden="true">
-          <path d="M60 22 C 106 22, 106 80, 72 114 L 20 190" fill="none" stroke="#5e2589" stroke-width="22" stroke-linejoin="round"/>
-          <path d="M60 22 C 14 22, 14 80, 48 114 L 100 190" fill="none" stroke="#8e4fc0" stroke-width="22" stroke-linejoin="round"/>
-          <path d="M44 34 C 30 44, 30 78, 50 102" fill="none" stroke="#c49ae8" stroke-width="5" stroke-linecap="round" opacity=".75"/>
-        </svg>
-        <h1><span class="l1">Mulheres em</span> <span class="l2">situação de</span> <span class="mark">violência</span></h1>
-      </div>
-      <p class="tagline">Informar é proteger.<br>Denunciar é romper o silêncio.</p>
-      <svg class="swoosh" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M4 12 C 80 2, 200 2, 296 8" fill="none" stroke="#9a5bd0" stroke-width="5" stroke-linecap="round"/></svg>
+      <h1>Mulheres em situação de <span class="mark">violência<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 20 C 60 6, 120 28, 180 14 S 270 10, 296 18"/></svg></span></h1>
       <p class="lead">Pegue uma folha A4 e <strong>desenhe o que você entende por violência contra a mulher</strong>. Depois, conheça os tipos de violência, o que ela faz com o corpo e <strong>o caminho para pedir ajuda</strong>.</p>
       <div class="cta">
         <a class="btn btn-sun" href="#desenhar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Desenhar no A4</a>
@@ -532,7 +515,7 @@ footer .logos img{height:64px;width:auto;max-width:100%}
       </div>
     </div>
     <div class="hero-art">
-      <figure class="hero-photo"><img src="img/mulher.jpg"alt="Ilustração de uma mulher assustada, com um hematoma no olho, tendo a boca tapada por uma mão"></figure>
+      <figure class="hero-photo"><img src="img/arte-mulher.svg" alt="Ilustração de uma mulher assustada, com um hematoma no olho, tendo a boca tapada por uma mão"></figure>
     </div>
   </div>
   <a class="scroll-cue" href="#desenhar" style="text-decoration:none">role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></a>
