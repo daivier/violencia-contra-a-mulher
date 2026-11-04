@@ -118,8 +118,9 @@ p{margin:0}
 .btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
 
 .hero-art{position:relative;min-height:440px;display:grid;place-items:center}
-.hero-photo{position:relative;margin:0;width:min(400px,88%);max-width:100%;aspect-ratio:1200/1427;border-radius:999px 999px 28px 28px;overflow:hidden;border:6px solid rgba(255,255,255,.14);box-shadow:0 34px 60px -26px rgba(0,0,0,.75);background:#efe2f7}
-.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-art::before{content:"";position:absolute;inset:6% 4% 0;background:radial-gradient(closest-side,rgba(196,140,232,.32),rgba(196,140,232,.10) 60%,transparent);pointer-events:none}
+.hero-photo{position:relative;margin:0 0 calc(-1 * clamp(48px,7vw,90px));align-self:end;width:min(440px,92%);max-width:100%;aspect-ratio:960/1142}
+.hero-photo img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45));-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent 99%),linear-gradient(to right,transparent 0,#000 7%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 72%,transparent 99%),linear-gradient(to right,transparent 0,#000 7%,#000 86%,transparent 100%);mask-composite:intersect}
 .sheet-demo{position:relative;width:min(300px,72%);aspect-ratio:210/297;max-width:100%;background:var(--paper);color:var(--paper-ink);border-radius:4px;transform:rotate(-3deg);box-shadow:0 30px 50px -20px rgba(0,0,0,.6);padding:20px 18px;display:flex;flex-direction:column;z-index:2;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .sheet-demo:hover{transform:rotate(-1deg) scale(1.02)}
 .sheet-demo .q{font-family:var(--f-body);font-size:1.02rem;line-height:1.25;font-weight:800;color:var(--plum)}
@@ -512,7 +513,7 @@ footer .logos img{height:64px;width:auto;max-width:100%}
       </div>
     </div>
     <div class="hero-art">
-      <figure class="hero-photo"><img src="img/mulher.jpg" alt="Ilustração de uma mulher assustada, com um hematoma no olho, tendo a boca tapada por uma mão"></figure>
+      <figure class="hero-photo"><img src="img/mulher.webp"alt="Ilustração de uma mulher assustada, com um hematoma no olho, tendo a boca tapada por uma mão"></figure>
     </div>
   </div>
   <a class="scroll-cue" href="#desenhar" style="text-decoration:none">role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></a>
