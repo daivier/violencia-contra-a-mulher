@@ -548,11 +548,15 @@ footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
     <nav class="nav" aria-label="Seções">
       <a href="#desenhar">Desenhe no A4</a>
       <a href="#tipos">Tipos</a>
-      <a href="#ciber">Ciberviolência</a>
       <a href="#corpo">O corpo sente</a>
       <a href="#direitos">Direitos</a>
-      <a href="#apoio">Rede de apoio</a>
+      <a href="#ciber">Ciberviolência</a>
+      <a href="#jogo">Jogo rápido</a>
+      <a href="#leis">Leis</a>
       <a href="#conversa">Roda de conversa</a>
+      <a href="#palavras">Palavras de apoio</a>
+      <a href="#apoio">Rede de apoio</a>
+      <a href="#plano">Plano de segurança</a>
     </nav>
     <a class="exit" id="exitBtn" href="https://www.google.com/search?q=previs%C3%A3o+do+tempo" target="_blank" rel="noopener" title="Esconde esta página na hora">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -674,22 +678,6 @@ footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
         <p>As folhas coladas aparecem aqui.</p>
       </div>
     </div>
-
-    <div class="wordwall">
-      <div class="card">
-        <span class="kicker">Dinâmica de empoderamento</span>
-        <h3 style="font-size:1.6rem;margin-top:8px">Palavras de apoio</h3>
-        <p class="hint" style="margin-bottom:12px">Escreva uma frase que você diria para uma mulher em situação de violência. Ela vira um bilhete no mural.</p>
-        <form id="wordForm" class="field" style="margin-bottom:10px">
-          <label class="sr" for="wordInput">Sua palavra de apoio</label>
-          <input id="wordInput" maxlength="60" placeholder="Ex.: Você não está sozinha">
-          <button class="btn btn-ink btn-sm" type="submit">Colar bilhete</button>
-        </form>
-        <span class="label">Ideias</span>
-        <div class="row" id="ideas"></div>
-      </div>
-      <div class="corkboard"><div class="notes" id="notes"></div></div>
-    </div>
   </div>
 </section>
 
@@ -702,55 +690,11 @@ footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
       <p>A Lei Maria da Penha (Lei 11.340/2006, art. 7º) define cinco formas de violência doméstica e familiar contra a mulher. A violência virtual atravessa todas elas. Toque em cada cartão para virar.</p>
     </div>
     <div class="types" id="types"></div>
-
-    <div class="quiz">
-      <div class="quiz-intro">
-        <span class="kicker" style="color:var(--sun)">Jogo rápido</span>
-        <h3>Isso é violência? Qual?</h3>
-        <p>Leia a situação e escolha o tipo de violência. Muitas vezes ela não deixa marca visível, e é por isso que precisamos aprender a nomear.</p>
-        <div class="score" id="score" aria-label="Progresso do jogo"></div>
-      </div>
-      <div class="quiz-card" aria-live="polite">
-        <span class="label" id="qCount">Situação 1 de 8</span>
-        <p class="scenario" id="scenario"></p>
-        <div class="answers" id="answers"></div>
-        <div class="feedback" id="feedback">Escolha uma resposta.</div>
-        <div class="row"><button class="btn btn-ink btn-sm" id="nextQ" disabled>Próxima situação</button></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CIBER -->
-<section class="block" id="ciber">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="kicker">Violência virtual</span>
-      <h2>Ciberviolência <em>contra a mulher</em></h2>
-      <p>A internet não inventou o machismo, mas virou um amplificador dele. A velocidade das redes e a falsa sensação de anonimato servem para desqualificar e silenciar mulheres que ocupam espaços públicos. É uma violação de direitos humanos que atinge a dignidade psicológica da vítima.</p>
-    </div>
-    <div class="ciber">
-      <div class="tabs" role="tablist" id="cyTabs" aria-label="Formas de ciberviolência"></div>
-      <div class="tabpanel" role="tabpanel" id="cyPanel"></div>
-    </div>
-
-    <div class="laws">
-      <h3>Linha do tempo das leis</h3>
-      <div class="timeline"><div class="tl" id="tl"></div></div>
-      <div class="law-detail" id="lawDetail" aria-live="polite"></div>
-    </div>
-
-    <div class="todo">
-      <div><span class="n">1</span><b>Não apague nada</b><span>Mensagens, perfis e comentários são provas, mesmo que doam.</span></div>
-      <div><span class="n">2</span><b>Faça prints com data e link</b><span>Guarde em um lugar que o agressor não acesse (e-mail ou nuvem só sua).</span></div>
-      <div><span class="n">3</span><b>Denuncie na plataforma</b><span>Peça a remoção. Imagens íntimas devem ser retiradas após notificação da vítima (Marco Civil, art. 21).</span></div>
-      <div><span class="n">4</span><b>Registre a ocorrência</b><span>No Amapá: Delegacia de Crimes Cibernéticos, (96) 98436-3552, ou Delegacia da Mulher, (96) 98403-5882. A SaferNet também orienta.</span></div>
-    </div>
   </div>
 </section>
 
 <!-- CORPO -->
-<section class="block alt" id="corpo">
+<section class="block" id="corpo">
   <div class="wrap">
     <div class="sec-head">
       <span class="kicker">Conteúdo científico</span>
@@ -798,7 +742,7 @@ footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
 </section>
 
 <!-- DIREITOS HUMANOS -->
-<section class="block" id="direitos">
+<section class="block alt" id="direitos">
   <div class="wrap">
     <div class="sec-head">
       <span class="kicker">Direitos humanos</span>
@@ -821,6 +765,99 @@ footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
 
     <h3 class="dh-sub">Mito ou verdade?</h3>
     <div class="mv" id="mitos"></div>
+  </div>
+</section>
+
+<!-- CIBER -->
+<section class="block" id="ciber">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Violência virtual</span>
+      <h2>Ciberviolência <em>contra a mulher</em></h2>
+      <p>A internet não inventou o machismo, mas virou um amplificador dele. A velocidade das redes e a falsa sensação de anonimato servem para desqualificar e silenciar mulheres que ocupam espaços públicos. É uma violação de direitos humanos que atinge a dignidade psicológica da vítima.</p>
+    </div>
+    <div class="ciber">
+      <div class="tabs" role="tablist" id="cyTabs" aria-label="Formas de ciberviolência"></div>
+      <div class="tabpanel" role="tabpanel" id="cyPanel"></div>
+    </div>
+
+    <div class="todo">
+      <div><span class="n">1</span><b>Não apague nada</b><span>Mensagens, perfis e comentários são provas, mesmo que doam.</span></div>
+      <div><span class="n">2</span><b>Faça prints com data e link</b><span>Guarde em um lugar que o agressor não acesse (e-mail ou nuvem só sua).</span></div>
+      <div><span class="n">3</span><b>Denuncie na plataforma</b><span>Peça a remoção. Imagens íntimas devem ser retiradas após notificação da vítima (Marco Civil, art. 21).</span></div>
+      <div><span class="n">4</span><b>Registre a ocorrência</b><span>No Amapá: Delegacia de Crimes Cibernéticos, (96) 98436-3552, ou Delegacia da Mulher, (96) 98403-5882. A SaferNet também orienta.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOGO RÁPIDO -->
+<section class="block alt" id="jogo">
+  <div class="wrap">
+    <div class="quiz" style="margin-top:0">
+      <div class="quiz-intro">
+        <span class="kicker" style="color:var(--sun)">Jogo rápido</span>
+        <h3>Isso é violência? Qual?</h3>
+        <p>Leia a situação e escolha o tipo de violência. Muitas vezes ela não deixa marca visível, e é por isso que precisamos aprender a nomear.</p>
+        <div class="score" id="score" aria-label="Progresso do jogo"></div>
+      </div>
+      <div class="quiz-card" aria-live="polite">
+        <span class="label" id="qCount">Situação 1 de 8</span>
+        <p class="scenario" id="scenario"></p>
+        <div class="answers" id="answers"></div>
+        <div class="feedback" id="feedback">Escolha uma resposta.</div>
+        <div class="row"><button class="btn btn-ink btn-sm" id="nextQ" disabled>Próxima situação</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINHA DO TEMPO DAS LEIS -->
+<section class="block" id="leis">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Linha do tempo das leis</span>
+      <h2>Leis que <em>protegem as mulheres</em></h2>
+      <p>Do Brasil sem nenhuma lei específica até a proteção contra a violência na internet. Toque em cada ano para ver o que mudou.</p>
+    </div>
+    <div class="timeline"><div class="tl" id="tl"></div></div>
+    <div class="law-detail" id="lawDetail" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- CONVERSA -->
+<section class="block alt" id="conversa">
+  <div class="wrap">
+    <div class="talk">
+      <div>
+        <span class="kicker">Discussão crítica</span>
+        <p class="qtext" id="talkQ">Como a ciência pode ajudar a proteger a dignidade de uma mulher?</p>
+        <p class="count" id="talkCount">Pergunta 1 de 8</p>
+      </div>
+      <button class="btn btn-sun" id="talkBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>Sortear pergunta</button>
+    </div>
+  </div>
+</section>
+
+<!-- DINÂMICA DE EMPODERAMENTO -->
+<section class="block" id="palavras">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Dinâmica de empoderamento</span>
+      <h2>Palavras <em>de apoio</em></h2>
+      <p>Escreva uma frase que você diria para uma mulher em situação de violência. Ela vira um bilhete no mural.</p>
+    </div>
+    <div class="wordwall" style="margin-top:0">
+      <div class="card">
+        <form id="wordForm" class="field" style="margin-bottom:10px">
+          <label class="sr" for="wordInput">Sua palavra de apoio</label>
+          <input id="wordInput" maxlength="60" placeholder="Ex.: Você não está sozinha">
+          <button class="btn btn-ink btn-sm" type="submit">Colar bilhete</button>
+        </form>
+        <span class="label">Ideias</span>
+        <div class="row" id="ideas"></div>
+      </div>
+      <div class="corkboard"><div class="notes" id="notes"></div></div>
+    </div>
   </div>
 </section>
 
@@ -856,28 +893,19 @@ footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
         </div>
       </div>
     </div>
-
-    <div class="safety">
-      <div class="sec-head" style="margin-bottom:16px">
-        <span class="kicker">Plano de segurança</span>
-        <h2 style="font-size:clamp(1.6rem,3.2vw,2.3rem)">Pequenos passos que protegem</h2>
-        <p>Marque o que já está pronto. É só um lembrete na tela: nada fica gravado neste aparelho.</p>
-      </div>
-      <div class="checks" id="safety"></div>
-    </div>
   </div>
 </section>
 
-<!-- CONVERSA -->
-<section class="block" id="conversa" style="padding-top:0;padding-bottom:clamp(28px,4vw,44px)">
+<!-- PLANO DE SEGURANÇA -->
+<section class="block" id="plano">
   <div class="wrap">
-    <div class="talk">
-      <div>
-        <span class="kicker">Discussão crítica</span>
-        <p class="qtext" id="talkQ">Como a ciência pode ajudar a proteger a dignidade de uma mulher?</p>
-        <p class="count" id="talkCount">Pergunta 1 de 8</p>
-      </div>
-      <button class="btn btn-sun" id="talkBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>Sortear pergunta</button>
+    <div class="sec-head">
+      <span class="kicker">Plano de segurança</span>
+      <h2>Pequenos passos <em>que protegem</em></h2>
+      <p>Marque o que já está pronto. É só um lembrete na tela: nada fica gravado neste aparelho.</p>
+    </div>
+    <div class="safety" style="margin-top:0">
+      <div class="checks" id="safety"></div>
     </div>
   </div>
 </section>
