@@ -60,7 +60,8 @@ p{margin:0}
 .nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0;mask-image:linear-gradient(90deg,#000 88%,transparent)}
 .nav::-webkit-scrollbar{display:none}
 .nav a{color:var(--on-band-muted);text-decoration:none;font-weight:700;font-size:.88rem;padding:7px 11px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
-.nav a:hover,.nav a.on{background:rgba(255,255,255,.12);color:var(--on-band)}
+.nav a:hover{background:rgba(255,255,255,.12);color:var(--on-band)}
+.nav a.on{background:var(--sun);color:var(--sun-ink)}
 .exit{flex:none;display:inline-flex;align-items:center;gap:7px;background:var(--coral);color:var(--coral-ink);font-weight:800;font-size:.85rem;text-decoration:none;padding:8px 14px;border-radius:999px;border:0;box-shadow:0 0 0 3px rgba(255,255,255,.12)}
 .exit:hover{filter:brightness(1.08)}
 .exit small{font-weight:600;opacity:.85}
@@ -887,10 +888,20 @@ const burstFrom = el => { const r = el.getBoundingClientRect(); burst(r.left + r
 /* ---------- topo: progresso, nav ativa, sair rápido ---------- */
 const navLinks = $$('.nav a');
 const secs = navLinks.map(a => $(a.getAttribute('href')));
+let navCur = -2;
 function onScroll(){
   const h = document.documentElement; $('#progress').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
   let cur = -1; secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top < 140) cur = i; });
-  navLinks.forEach((a, i) => a.classList.toggle('on', i === cur));
+  navLinks.forEach((a, i) => { a.classList.toggle('on', i === cur); if (i === cur) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+  // no celular o menu rola sozinho para mostrar a seção em que a pessoa está
+  if (cur !== navCur){
+    navCur = cur;
+    const nav = $('.nav'), a = navLinks[cur];
+    if (nav.scrollWidth > nav.clientWidth){
+      const alvo = a ? a.offsetLeft - nav.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2 : 0;
+      nav.scrollTo({ left: Math.max(0, alvo), behavior: reduce ? 'auto' : 'smooth' });
+    }
+  }
 }
 addEventListener('scroll', onScroll, { passive: true }); onScroll();
 function quickExit(){ $('#cover').hidden = false; document.title = 'Previsão do tempo'; }
