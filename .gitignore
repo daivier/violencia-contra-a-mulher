@@ -1,0 +1,4 @@
+# arquivos de trabalho (imagens originais, testes e servidor local)
+assets/
+.claude/
+__pycache__/

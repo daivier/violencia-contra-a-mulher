@@ -1,0 +1,1420 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Banner interativo sobre violência contra a mulher: folha A4 para desenhar, tipos de violência, ciberviolência, fisiologia do estresse e rede de apoio em Macapá e no Amapá.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Elas Não Estão Sozinhas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&display=swap">
+<style>
+/* Layout: banner de cartolina, faixa ameixa no topo, seções de papel com folhas A4 coladas com fita, recortes e adesivos */
+:root{
+  --bg:#f5eef9;
+  --surface:#fffdf8;
+  --surface-2:#efe3f6;
+  --ink:#2a1235;
+  --muted:#6a5576;
+  --line:#dccbe8;
+  --plum:#3d1452;
+  --band:#3d1452;
+  --on-band:#fff4fb;
+  --on-band-muted:#e2c9ef;
+  --violet:#7a35a3;
+  --coral:#e2405c;
+  --coral-ink:#ffffff;
+  --sun:#ffc23d;
+  --sun-ink:#3a2300;
+  --mint:#23876a;
+  --tape:rgba(255,214,120,.78);
+  --paper:#fffdf8;
+  --paper-ink:#2a1235;
+  --shadow:0 1px 0 rgba(61,20,82,.06), 0 10px 28px -12px rgba(61,20,82,.35);
+  --f-display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --f-body:"Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#160a1e; --surface:#231130; --surface-2:#2e183e; --ink:#f7ebfc; --muted:#bfa9cc; --line:#47295a;
+    --band:#2a0c3a; --on-band:#fff4fb; --on-band-muted:#d9bde8;
+    --violet:#c48ce8; --coral:#ff6680; --coral-ink:#2a0410; --sun:#ffcf5c; --sun-ink:#2b1a00; --mint:#5fd2ae;
+    --tape:rgba(255,214,120,.55);
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 12px 30px -12px rgba(0,0,0,.7);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#160a1e; --surface:#231130; --surface-2:#2e183e; --ink:#f7ebfc; --muted:#bfa9cc; --line:#47295a;
+  --band:#2a0c3a; --on-band:#fff4fb; --on-band-muted:#d9bde8;
+  --violet:#c48ce8; --coral:#ff6680; --coral-ink:#2a0410; --sun:#ffcf5c; --sun-ink:#2b1a00; --mint:#5fd2ae;
+  --tape:rgba(255,214,120,.55);
+  --shadow:0 1px 0 rgba(0,0,0,.3), 0 12px 30px -12px rgba(0,0,0,.7);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--band)}
+img{max-width:100%;display:block}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.02;margin:0}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.hand{font-family:var(--f-body)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- progresso + topo ---------- */
+#progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:4px;width:0;background:linear-gradient(90deg,var(--sun),var(--coral));z-index:70;transition:width .1s linear}
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--band);color:var(--on-band);border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar .wrap{display:flex;align-items:center;gap:14px;min-height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-stretch:80%;font-size:1.15rem;letter-spacing:.01em;text-decoration:none;color:inherit;white-space:nowrap}
+.brand-mark{width:30px;height:30px;border-radius:50%;background:var(--coral);display:grid;place-items:center}
+.brand-mark svg{width:18px;height:18px}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0;mask-image:linear-gradient(90deg,#000 88%,transparent)}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:var(--on-band-muted);text-decoration:none;font-weight:700;font-size:.88rem;padding:7px 11px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.nav a:hover,.nav a.on{background:rgba(255,255,255,.12);color:var(--on-band)}
+.exit{flex:none;display:inline-flex;align-items:center;gap:7px;background:var(--coral);color:var(--coral-ink);font-weight:800;font-size:.85rem;text-decoration:none;padding:8px 14px;border-radius:999px;border:0;box-shadow:0 0 0 3px rgba(255,255,255,.12)}
+.exit:hover{filter:brightness(1.08)}
+.exit small{font-weight:600;opacity:.85}
+@media (max-width:640px){.exit small{display:none}.brand span.long{display:none}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--band);color:var(--on-band);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.2px,transparent 1.3px);background-size:22px 22px;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(36px,6vw,72px) clamp(48px,7vw,90px)}
+.eyebrow{display:inline-flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
+.chip.sun{background:var(--sun);color:var(--sun-ink);border-color:transparent}
+.hero h1{font-size:clamp(2.6rem,7.4vw,5.6rem);font-weight:800;font-stretch:75%;letter-spacing:-.01em;margin:18px 0 18px;text-transform:uppercase}
+.hero h1 .mark{position:relative;white-space:nowrap;color:var(--sun)}
+.hero h1 .mark svg{position:absolute;left:-2%;bottom:-.12em;width:104%;height:.32em;overflow:visible}
+.hero h1 .mark path{fill:none;stroke:var(--coral);stroke-width:9;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:0;animation:scribble 1.4s .4s ease-out backwards}
+@keyframes scribble{from{stroke-dashoffset:420}}
+.hero .lead{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--on-band-muted);max-width:52ch}
+.hero .lead strong{color:var(--on-band)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.chip.name{background:var(--on-band);color:var(--plum);border-color:transparent}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:13px 22px;font-weight:800;font-size:.98rem;text-decoration:none;transition:transform .15s ease,box-shadow .2s,filter .2s;will-change:transform}
+.btn:active{transform:scale(.96)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-sun{background:var(--sun);color:var(--sun-ink);box-shadow:0 6px 0 -1px #c98a00}
+.btn-sun:hover{transform:translateY(-2px)}
+.btn-coral{background:var(--coral);color:var(--coral-ink);box-shadow:0 6px 0 -1px rgba(120,10,40,.55)}
+.btn-coral:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:inherit;border:2px solid currentColor}
+.btn-ghost:hover{background:rgba(127,127,127,.12)}
+.btn-soft{background:var(--surface-2);color:var(--ink)}
+.btn-soft:hover{filter:brightness(.97)}
+.btn-ink{background:var(--ink);color:var(--bg)}
+.btn-sm{padding:8px 14px;font-size:.86rem}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
+
+.hero-art{position:relative;min-height:440px;display:grid;place-items:center}
+.sheet-demo{position:relative;width:min(300px,72%);aspect-ratio:210/297;max-width:100%;background:var(--paper);color:var(--paper-ink);border-radius:4px;transform:rotate(-3deg);box-shadow:0 30px 50px -20px rgba(0,0,0,.6);padding:20px 18px;display:flex;flex-direction:column;z-index:2;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.sheet-demo:hover{transform:rotate(-1deg) scale(1.02)}
+.sheet-demo .q{font-family:var(--f-body);font-size:1.02rem;line-height:1.25;font-weight:800;color:var(--plum)}
+.sheet-demo .a4tag{position:absolute;right:10px;bottom:8px;font-size:.66rem;letter-spacing:.12em;font-weight:800;color:#9a86a6}
+.sheet-demo svg{flex:1;width:100%}
+.sheet-demo svg .draw{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 2.2s ease-in-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.tape{position:absolute;width:86px;height:26px;background:var(--tape);top:-12px;left:50%;transform:translateX(-50%) rotate(-4deg);box-shadow:0 1px 2px rgba(0,0,0,.12);z-index:3}
+.polaroid{position:absolute;background:#fff;padding:7px 7px 26px;box-shadow:0 18px 30px -14px rgba(0,0,0,.6);width:150px;z-index:1;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.polaroid img{aspect-ratio:1/1;object-fit:cover;width:100%}
+.polaroid span{position:absolute;left:0;right:0;bottom:3px;text-align:center;font-family:var(--f-body);font-size:.74rem;color:#3d1452;font-weight:800}
+.polaroid.p1{left:0;top:6%;transform:rotate(-9deg)}
+.polaroid.p2{right:0;top:2%;transform:rotate(8deg)}
+.polaroid.p3{right:4%;bottom:2%;transform:rotate(-6deg)}
+.polaroid:hover{transform:rotate(0) scale(1.08);z-index:4}
+.sticker{position:absolute;z-index:4;font-family:var(--f-body);font-weight:800;font-size:.92rem;padding:4px 12px;border-radius:8px;box-shadow:0 8px 14px -8px rgba(0,0,0,.5);animation:bob 5s ease-in-out infinite}
+.sticker.s1{background:var(--sun);color:var(--sun-ink);left:6%;bottom:12%;transform:rotate(-7deg)}
+.sticker.s2{background:var(--coral);color:#fff;right:-2%;top:44%;transform:rotate(6deg);animation-delay:-2s}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.scroll-cue{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);color:var(--on-band-muted);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:2px}
+.scroll-cue svg{width:18px;animation:bob 2s ease-in-out infinite}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-art{min-height:380px}
+  .polaroid{width:118px}
+}
+@media (max-width:460px){.polaroid.p3{display:none}.polaroid{width:100px}.scroll-cue{display:none}}
+
+/* ---------- faixa de números ---------- */
+.ribbon{background:var(--sun);color:var(--sun-ink);overflow:hidden;border-block:3px solid var(--plum)}
+.ribbon-track{display:flex;gap:40px;padding-block:12px;white-space:nowrap;animation:marquee 38s linear infinite;width:max-content;font-family:var(--f-display);font-weight:800;font-stretch:80%;font-size:1.15rem;text-transform:uppercase;letter-spacing:.02em}
+.ribbon-track span{display:inline-flex;align-items:center;gap:40px}
+.ribbon-track span::after{content:"✦";color:var(--coral)}
+.ribbon:hover .ribbon-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- seções ---------- */
+section.block{padding-block:clamp(56px,8vw,96px)}
+section.block.alt{background:var(--surface-2)}
+.sec-head{display:grid;gap:12px;max-width:760px;margin-bottom:clamp(26px,4vw,40px)}
+.kicker{display:inline-flex;align-self:start;justify-self:start;gap:8px;align-items:center;font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--violet)}
+.kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--coral)}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.3rem);font-weight:800;font-stretch:78%;text-transform:uppercase;letter-spacing:-.005em}
+.sec-head h2 em{font-style:normal;color:var(--coral)}
+.sec-head p{color:var(--muted);font-size:1.06rem;max-width:62ch}
+
+/* ---------- atividade A4 ---------- */
+.studio{display:grid;grid-template-columns:76px minmax(0,1fr) minmax(0,320px);gap:20px;align-items:start}
+.tools{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:10px;position:sticky;top:84px;box-shadow:var(--shadow)}
+.tool{width:54px;height:54px;border-radius:14px;border:2px solid transparent;background:var(--surface-2);display:grid;place-items:center;transition:transform .15s,border-color .15s,background .15s;position:relative}
+.tool svg{width:24px;height:24px}
+.tool:hover{transform:translateY(-2px)}
+.tool[aria-pressed="true"]{border-color:var(--violet);background:var(--surface);box-shadow:0 0 0 3px color-mix(in srgb,var(--violet) 25%,transparent)}
+.tool .tip{position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);background:var(--ink);color:var(--bg);font-size:.75rem;font-weight:700;padding:4px 8px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s}
+.tool:hover .tip,.tool:focus-visible .tip{opacity:1}
+.tools hr{border:0;border-top:1px dashed var(--line);margin:4px 0;width:100%}
+.sheet-wrap{position:relative;display:grid;justify-items:center}
+.sheet{position:relative;width:min(100%,560px);aspect-ratio:210/297;max-width:100%;background:var(--paper);border-radius:3px;box-shadow:0 2px 0 rgba(0,0,0,.05),0 30px 50px -24px rgba(61,20,82,.55)}
+.sheet canvas{width:100%;height:100%;display:block;touch-action:none;border-radius:3px;cursor:crosshair}
+.sheet .tape{top:-13px}
+.sheet .tape.r{left:auto;right:-18px;top:auto;bottom:40px;transform:rotate(70deg)}
+.sheet-meta{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:16px;color:var(--muted);font-size:.85rem;font-weight:600;flex-wrap:wrap}
+.sheet-meta .chip{background:var(--surface);border-color:var(--line);color:var(--muted)}
+.panel{display:grid;gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+.card h3{font-size:1.25rem;font-weight:800;font-stretch:85%;margin-bottom:8px}
+.label{font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block}
+.swatches{display:flex;flex-wrap:wrap;gap:8px}
+.sw{width:32px;height:32px;border-radius:50%;border:3px solid var(--surface);box-shadow:0 0 0 1px var(--line);transition:transform .15s}
+.sw:hover{transform:scale(1.12)}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ink);transform:scale(1.08)}
+.sizes{display:flex;gap:8px}
+.size{flex:1;height:40px;border-radius:12px;border:2px solid var(--line);background:var(--surface);display:grid;place-items:center}
+.size i{display:block;border-radius:50%;background:var(--ink)}
+.size[aria-pressed="true"]{border-color:var(--violet);background:var(--surface-2)}
+.stamps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.stamp{aspect-ratio:1;border-radius:12px;border:2px solid var(--line);background:var(--surface);display:grid;place-items:center;padding:6px}
+.stamp svg{width:100%;height:100%}
+.stamp[aria-pressed="true"]{border-color:var(--violet);background:var(--surface-2)}
+.words{display:flex;flex-wrap:wrap;gap:6px}
+.word{border:2px dashed var(--line);background:var(--surface);border-radius:10px;padding:5px 10px;font-weight:700;font-size:.82rem;transition:transform .15s}
+.word:hover{transform:rotate(-2deg)}
+.word[aria-pressed="true"]{border-style:solid;border-color:var(--coral);background:color-mix(in srgb,var(--coral) 14%,var(--surface))}
+.prompt-card{background:var(--plum);color:var(--on-band);border:0;position:relative;overflow:hidden}
+.prompt-card .label{color:var(--on-band-muted)}
+.prompt-card p.q{font-family:var(--f-body);font-size:1.22rem;line-height:1.3;font-weight:800;min-height:2.6em;transition:opacity .25s,transform .25s}
+.prompt-card p.q.swap{opacity:0;transform:translateY(8px)}
+.prompt-card .btn{margin-top:12px}
+.field{display:grid;gap:6px;margin-bottom:12px}
+.field input,.field textarea{width:100%;border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 12px;font-size:.95rem}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--violet)}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row .btn{flex:1 1 auto}
+.hint{font-size:.82rem;color:var(--muted)}
+.mobile-tools{display:none}
+@media (max-width:1020px){
+  .studio{grid-template-columns:minmax(0,1fr);}
+  .tools{position:static;flex-direction:row;overflow-x:auto;justify-content:flex-start;scrollbar-width:thin}
+  .tools hr{width:auto;border-top:0;border-left:1px dashed var(--line);margin:0 2px;align-self:stretch}
+  .tool{flex:none;width:50px;height:50px}
+  .tools hr{display:none}
+  .tool .tip{display:none}
+  /* no celular: tema, ferramentas e cores ficam acima da folha */
+  .panel{display:contents}
+  .prompt-card{order:-4}
+  .tools{order:-3}
+  #optPen{order:-2;padding:14px}
+  .sheet-wrap{order:0}
+  .panel > .card:last-child{order:1}
+  .sw{width:30px;height:30px}
+}
+@media (max-width:420px){.tools{gap:5px;padding:8px}.tool{width:40px;height:40px;border-radius:11px}.tool svg{width:20px;height:20px}}
+
+/* mural */
+.mural-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin:56px 0 20px}
+.mural-head h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;font-stretch:78%;text-transform:uppercase}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+.status.live i{background:var(--mint);box-shadow:0 0 0 0 var(--mint);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px transparent}}
+.corkboard{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(16px,3vw,28px);box-shadow:var(--shadow);background-image:radial-gradient(color-mix(in srgb,var(--violet) 14%,transparent) 1px,transparent 1.2px);background-size:18px 18px}
+.mural{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:22px}
+.pin{position:relative;background:#fff;padding:8px 8px 10px;box-shadow:0 14px 24px -14px rgba(0,0,0,.55);transform:rotate(var(--rot,0deg));transition:transform .3s cubic-bezier(.2,.8,.2,1);border:0;text-align:left;color:#2a1235}
+.pin:hover,.pin:focus-visible{transform:rotate(0) scale(1.04);z-index:2}
+.pin img{width:100%;aspect-ratio:210/297;object-fit:cover;background:#f3eef6}
+.pin .cap{font-family:var(--f-body);font-size:.86rem;line-height:1.3;margin-top:6px;font-weight:800;overflow-wrap:anywhere}
+.pin .who{font-size:.72rem;color:#6a5576;font-weight:700}
+.pin .tape{width:60px;height:20px;top:-9px}
+.pin .badge{position:absolute;right:6px;top:6px;font-size:.62rem;font-weight:800;background:var(--sun);color:#3a2300;border-radius:6px;padding:2px 6px;letter-spacing:.04em}
+.empty{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:22px}
+.ghost-sheet{aspect-ratio:210/297;border:2.5px dashed var(--line);border-radius:6px;display:grid;place-items:center;text-align:center;padding:14px;color:var(--muted);font-family:var(--f-body);font-size:.95rem;font-weight:700;line-height:1.3}
+.ghost-sheet:first-child{border-color:var(--violet);color:var(--violet)}
+
+.wordwall{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px;align-items:start}
+.notes{display:flex;flex-wrap:wrap;gap:12px;align-content:flex-start;min-height:140px}
+.note{font-family:var(--f-body);font-weight:800;font-size:.98rem;line-height:1.3;padding:12px 14px 14px;min-width:110px;max-width:220px;box-shadow:0 10px 18px -12px rgba(0,0,0,.5);transform:rotate(var(--rot,0deg));color:#2a1235;animation:pop .45s cubic-bezier(.2,1.6,.4,1) backwards;position:relative;overflow-wrap:anywhere}
+.note button{position:absolute;right:2px;top:0;border:0;background:none;color:#2a1235;opacity:.5;font-size:.9rem;padding:2px 6px}
+.note button:hover{opacity:1}
+@keyframes pop{from{transform:scale(.4) rotate(var(--rot,0deg));opacity:0}}
+.idea{border:2px dashed var(--line);border-radius:999px;padding:5px 12px;background:var(--surface);font-weight:700;font-size:.85rem;transition:background .15s}
+.idea:hover{background:var(--surface-2)}
+@media (max-width:760px){.wordwall{grid-template-columns:1fr}}
+
+/* ---------- tipos ---------- */
+.types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.flip{perspective:1200px;border:0;padding:0;background:none;text-align:left;min-height:380px}
+.flip-inner{position:relative;width:100%;height:100%;min-height:380px;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.flip[aria-pressed="true"] .flip-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;border:1px solid var(--line)}
+.front{background:var(--surface)}
+.front .pic{flex:1;min-height:0;background:var(--c);position:relative}
+.front .pic img{width:100%;height:100%;object-fit:cover}
+.front .pic svg{width:100%;height:100%;display:block}
+.front .pic.ill{background:#e9d8f7}
+.front .meta{padding:14px 16px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.front h3{font-size:1.5rem;font-weight:800;font-stretch:78%;text-transform:uppercase}
+.front h3 small{display:block;font-family:var(--f-body);font-size:.72rem;letter-spacing:.12em;color:var(--muted);font-weight:800}
+.turn{flex:none;width:40px;height:40px;border-radius:50%;background:var(--c);display:grid;place-items:center;color:#fff;transition:transform .3s}
+.flip:hover .turn{transform:rotate(180deg)}
+.turn svg{width:20px}
+.back{transform:rotateY(180deg);background:var(--c);color:#fff;padding:22px;gap:10px}
+.back h3{font-size:1.6rem;font-weight:800;font-stretch:78%;text-transform:uppercase}
+.back p{font-size:.98rem;opacity:.95}
+.back ul{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.back li{background:rgba(255,255,255,.18);border-radius:999px;padding:4px 10px;font-size:.84rem;font-weight:700}
+.back .law{margin-top:auto;font-size:.8rem;font-weight:700;opacity:.9;border-top:1px solid rgba(255,255,255,.3);padding-top:10px}
+@media (max-width:900px){.types{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.types{grid-template-columns:1fr}.flip,.flip-inner{min-height:360px}}
+
+/* quiz */
+.quiz{margin-top:44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:stretch}
+.quiz-intro{background:var(--plum);color:var(--on-band);border-radius:22px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.quiz-intro h3{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:800;font-stretch:75%;text-transform:uppercase}
+.quiz-intro p{color:var(--on-band-muted)}
+.score{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.score i{width:26px;height:8px;border-radius:4px;background:rgba(255,255,255,.18);transition:background .3s}
+.score i.ok{background:var(--sun)}
+.score i.no{background:var(--coral)}
+.score i.now{background:#fff}
+.quiz-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,30px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px}
+.scenario{font-family:var(--f-body);font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.35;font-weight:800;color:var(--ink);min-height:3.3em}
+.answers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ans{border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 8px;font-weight:800;font-size:.88rem;transition:transform .15s,border-color .15s,background .15s}
+.ans:hover:not([disabled]){transform:translateY(-2px);border-color:var(--violet)}
+.ans.right{background:var(--mint);border-color:var(--mint);color:#fff}
+.ans.wrong{background:var(--coral);border-color:var(--coral);color:#fff;animation:shake .4s}
+.ans[disabled]{cursor:default}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.feedback{border-radius:14px;padding:12px 14px;background:var(--surface-2);font-size:.95rem;min-height:3.2em}
+.feedback b{color:var(--violet)}
+@media (max-width:860px){.quiz{grid-template-columns:1fr}}
+@media (max-width:420px){.answers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- ciber ---------- */
+.ciber{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:24px}
+.tabs{display:flex;flex-direction:column;gap:8px}
+.tab{display:flex;align-items:center;gap:12px;text-align:left;border:2px solid var(--line);background:var(--surface);border-radius:16px;padding:12px 14px;font-weight:800;transition:transform .15s,border-color .15s,background .15s}
+.tab .n{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--surface-2);font-family:var(--f-display);color:var(--violet);flex:none}
+.tab:hover{transform:translateX(4px)}
+.tab[aria-selected="true"]{border-color:var(--violet);background:var(--violet);color:#fff}
+.tab[aria-selected="true"] .n{background:rgba(255,255,255,.2);color:#fff}
+.tabpanel{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+.tabpanel .img{background:var(--surface-2);min-height:280px}
+.tabpanel .img img{width:100%;height:100%;object-fit:cover}
+.tabpanel .txt{padding:clamp(18px,3vw,30px);display:flex;flex-direction:column;gap:14px;animation:fadein .4s ease}
+@keyframes fadein{from{transform:translateY(8px)}}
+.tabpanel h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;font-stretch:78%;text-transform:uppercase}
+.tabpanel .alert{border-left:4px solid var(--coral);background:color-mix(in srgb,var(--coral) 10%,var(--surface));padding:10px 14px;border-radius:0 12px 12px 0;font-size:.95rem}
+@media (max-width:860px){.ciber{grid-template-columns:1fr}.tabs{flex-direction:row;overflow-x:auto;padding-bottom:6px}.tab{flex:none}.tabpanel{grid-template-columns:1fr}.tabpanel .img{min-height:0;display:grid;place-items:center}.tabpanel .img img{height:auto;max-height:360px}}
+
+.laws{margin-top:44px}
+.laws h3{font-size:clamp(1.5rem,2.6vw,2rem);font-weight:800;font-stretch:78%;text-transform:uppercase;margin-bottom:18px}
+.timeline{overflow-x:auto;padding-bottom:10px}
+.tl{display:grid;grid-template-columns:repeat(6,minmax(150px,1fr));gap:0;min-width:900px;position:relative}
+.tl::before{content:"";position:absolute;left:0;right:0;top:30px;height:4px;background:var(--line);border-radius:4px}
+.tl button{position:relative;border:0;background:none;padding:0 8px;text-align:left;display:flex;flex-direction:column;gap:8px}
+.tl .dot{width:22px;height:22px;border-radius:50%;background:var(--surface);border:4px solid var(--violet);margin-top:21px;transition:transform .2s,background .2s}
+.tl .yr{font-family:var(--f-display);font-weight:800;font-size:1.6rem;font-stretch:78%;color:var(--violet)}
+.tl .nm{font-weight:800;font-size:.9rem;line-height:1.25}
+.tl button:hover .dot{transform:scale(1.25)}
+.tl button[aria-pressed="true"] .dot{background:var(--coral);border-color:var(--coral);transform:scale(1.3)}
+.law-detail{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow);display:grid;gap:6px}
+.law-detail h4{margin:0;font-family:var(--f-display);font-size:1.25rem;font-weight:800}
+.law-detail .tag{font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
+.todo{margin-top:28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.todo div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.todo b{font-family:var(--f-display);font-size:1.1rem;font-stretch:85%}
+.todo span{font-size:.92rem;color:var(--muted)}
+.todo .n{font-family:var(--f-display);font-weight:800;color:var(--coral);font-size:1.7rem;line-height:1}
+@media (max-width:860px){.todo{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.todo{grid-template-columns:1fr}}
+
+/* ---------- corpo ---------- */
+.axis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;counter-reset:s}
+.step{border:2px solid var(--line);background:var(--surface);border-radius:16px;padding:14px 12px;text-align:left;display:flex;flex-direction:column;gap:6px;position:relative;transition:transform .2s,border-color .2s,background .2s}
+.step .n{font-family:var(--f-display);font-weight:800;font-size:1.5rem;color:var(--violet);line-height:1}
+.step b{font-size:.95rem;line-height:1.2}
+.step small{color:var(--muted);font-size:.78rem;font-weight:700}
+.step:hover{transform:translateY(-3px)}
+.step[aria-pressed="true"]{background:var(--violet);border-color:var(--violet);color:#fff}
+.step[aria-pressed="true"] .n,.step[aria-pressed="true"] small{color:#fff}
+.axis-detail{margin-top:14px;background:var(--plum);color:var(--on-band);border-radius:18px;padding:18px 22px;font-size:1.02rem;display:flex;gap:16px;align-items:flex-start}
+.axis-detail .big{font-family:var(--f-display);font-weight:800;font-size:2.6rem;line-height:.9;color:var(--sun);flex:none}
+.axis-controls{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+@media (max-width:900px){.axis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:460px){.axis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.bodymap{margin-top:40px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px;align-items:start}
+.figure{position:relative;max-width:340px;width:100%;margin:0 auto;aspect-ratio:200/420}
+.figure svg{width:100%;height:100%}
+.hot{position:absolute;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;border:3px solid var(--surface);background:var(--coral);color:#fff;display:grid;place-items:center;font-weight:800;box-shadow:0 6px 14px -6px rgba(0,0,0,.6);transition:transform .2s}
+.hot::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--coral);opacity:.6;animation:ring 2.2s infinite}
+@keyframes ring{from{transform:scale(.7);opacity:.7}to{transform:scale(1.4);opacity:0}}
+.hot:hover{transform:translate(-50%,-50%) scale(1.15)}
+.hot[aria-pressed="true"]{background:var(--sun);color:var(--sun-ink)}
+.hot svg{width:18px;height:18px}
+.modes{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px}
+.mode{border:0;background:none;border-radius:999px;padding:8px 16px;font-weight:800;font-size:.9rem;color:var(--muted)}
+.mode[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.organ{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,3vw,28px);box-shadow:var(--shadow);display:grid;gap:12px}
+.organ h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;font-stretch:78%;text-transform:uppercase}
+.organ .tag{font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
+.organ ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.organ .rights{margin-top:6px;font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+.organ-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+@media (max-width:860px){.bodymap{grid-template-columns:1fr}.figure{max-width:260px}}
+
+/* ---------- apoio ---------- */
+.help{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:start}
+.wizard{background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.wiz-top{background:var(--plum);color:var(--on-band);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.wiz-top b{font-family:var(--f-display);font-size:1.3rem;font-stretch:80%;text-transform:uppercase}
+.wiz-steps{display:flex;gap:6px}
+.wiz-steps i{width:30px;height:6px;border-radius:3px;background:rgba(255,255,255,.22)}
+.wiz-steps i.on{background:var(--sun)}
+.wiz-body{padding:clamp(18px,3vw,28px);display:grid;gap:16px}
+.wiz-body h3{font-size:clamp(1.5rem,2.8vw,2rem);font-weight:800;font-stretch:80%}
+.choice-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.big-choice{border:2px solid var(--line);border-radius:18px;padding:18px;text-align:left;background:var(--bg);display:grid;gap:4px;transition:transform .15s,border-color .15s}
+.big-choice b{font-family:var(--f-display);font-size:1.3rem;font-stretch:85%}
+.big-choice span{font-size:.9rem;color:var(--muted)}
+.big-choice:hover{transform:translateY(-3px);border-color:var(--violet)}
+.big-choice.danger{border-color:var(--coral)}
+.big-choice.danger b{color:var(--coral)}
+.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.check{display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:14px;padding:12px;background:var(--bg);font-weight:800;text-align:left;transition:border-color .15s,background .15s}
+.check .box{width:22px;height:22px;border-radius:7px;border:2px solid var(--line);display:grid;place-items:center;flex:none;background:var(--surface)}
+.check .box svg{width:14px;opacity:0}
+.check[aria-pressed="true"]{border-color:var(--violet);background:color-mix(in srgb,var(--violet) 10%,var(--bg))}
+.check[aria-pressed="true"] .box{background:var(--violet);border-color:var(--violet);color:#fff}
+.check[aria-pressed="true"] .box svg{opacity:1}
+.emergency{background:var(--coral);color:#fff;border-radius:18px;padding:18px;display:grid;gap:8px}
+.emergency .num{font-family:var(--f-display);font-size:4rem;font-weight:800;line-height:.9}
+.plan{display:grid;gap:10px;counter-reset:p;padding:0;margin:0;list-style:none}
+.plan li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px;animation:slidein .4s ease backwards}
+.plan li::before{counter-increment:p;content:counter(p);width:32px;height:32px;border-radius:50%;background:var(--violet);color:#fff;display:grid;place-items:center;font-weight:800;font-family:var(--f-display)}
+.plan li b{display:block}
+.plan li span{font-size:.92rem;color:var(--muted)}
+@keyframes slidein{from{transform:translateX(-10px)}}
+.contacts{display:grid;gap:10px}
+.contact{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px 14px;box-shadow:var(--shadow)}
+.contact .n{font-family:var(--f-display);font-weight:800;font-size:2rem;font-stretch:80%;color:var(--coral);min-width:72px;line-height:1;user-select:all}
+.contact .n.sm{font-size:1.05rem;min-width:72px}
+.contact b{display:block;font-size:.98rem}
+.contact span{font-size:.84rem;color:var(--muted);display:block}
+.copy{border:2px solid var(--line);background:var(--bg);border-radius:10px;padding:7px 10px;font-weight:800;font-size:.78rem;transition:background .15s}
+.copy:hover{background:var(--surface-2)}
+.copy.done{background:var(--mint);border-color:var(--mint);color:#fff}
+.signal{margin-top:14px;display:grid;grid-template-columns:90px minmax(0,1fr);gap:16px;align-items:center;background:var(--surface);border:2px dashed var(--coral);border-radius:18px;padding:14px}
+.signal svg{width:90px;height:90px}
+.safety{margin-top:28px}
+.safety .checks{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.safety .check{font-weight:700}
+@media (max-width:900px){.help{grid-template-columns:1fr}}
+@media (max-width:480px){.choice-row,.checks{grid-template-columns:1fr}.contact{gap:10px;padding:10px 12px}.contact .n{min-width:0;font-size:1.6rem}.contact .n.sm{font-size:.86rem;min-width:0}.contact b{font-size:.9rem}.contact span{font-size:.78rem}}
+
+/* ---------- conversa ---------- */
+.talk{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:var(--band);color:var(--on-band);border-radius:28px;padding:clamp(24px,4vw,48px);position:relative;overflow:hidden}
+.talk::after{content:"?";position:absolute;right:-10px;bottom:-80px;font-family:var(--f-display);font-weight:800;font-size:22rem;line-height:1;color:rgba(255,255,255,.05);pointer-events:none}
+.talk .kicker{color:var(--sun)}
+.talk .qtext{font-family:var(--f-body);font-size:clamp(1.3rem,3vw,2.1rem);line-height:1.25;font-weight:800;margin-top:10px;min-height:2.2em;transition:opacity .3s,transform .3s}
+.talk .qtext.swap{opacity:0;transform:rotate(-2deg) translateY(10px)}
+.talk .count{font-size:.85rem;color:var(--on-band-muted);margin-top:12px;font-weight:700}
+@media (max-width:700px){.talk{grid-template-columns:1fr}}
+
+footer{background:var(--band);color:var(--on-band-muted);padding-block:40px 48px;margin-top:clamp(56px,8vw,96px)}
+footer .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px}
+footer b{color:var(--on-band);font-family:var(--f-display);font-size:1.4rem;font-stretch:80%;text-transform:uppercase;display:block;margin-bottom:6px}
+footer p{font-size:.88rem}
+footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
+footer .logos{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(24px,6vw,64px);background:#ffffff;border-radius:18px;padding:18px 24px;margin-top:8px}
+footer .logos img{height:64px;width:auto;max-width:100%}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+@media (max-width:460px){footer .logos{gap:18px;padding:14px 16px}footer .logos img{height:46px}}
+
+/* ---------- overlays ---------- */
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:14px;font-weight:700;font-size:.92rem;z-index:90;transition:transform .35s cubic-bezier(.2,1.4,.4,1);max-width:calc(100% - 32px);text-align:center}
+.toast.show{transform:translate(-50%,0)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:85;width:100%;height:100%}
+.modal{position:fixed;inset:0;z-index:95;background:rgba(20,6,28,.72);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.modal-box{background:var(--surface);border-radius:18px;max-width:520px;width:100%;max-height:100%;overflow:auto;padding:16px;display:grid;gap:12px}
+.modal-box img{width:100%;border-radius:6px;background:#fff}
+.modal-box .row{justify-content:flex-end}
+#cover{position:fixed;inset:0;z-index:100;background:#f4f6f8;color:#1f2933;display:grid;place-items:center;font-family:system-ui,sans-serif;padding:24px}
+#cover .wx{text-align:center;display:grid;gap:8px}
+#cover .deg{font-size:4rem;font-weight:300}
+#cover button{margin-top:30px;border:0;background:none;color:#9aa5b1;font-size:.8rem;text-decoration:underline}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .ribbon-track{animation:none}
+}
+</style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Início">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.4-9.3C1.2 8.3 3.3 4.5 7 4.5c2 0 3.6 1.1 5 2.9 1.4-1.8 3-2.9 5-2.9 3.7 0 5.8 3.8 4.4 7.2C19.5 16.4 12 21 12 21z"/></svg></span>
+      <span>Elas</span>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#desenhar">Desenhe no A4</a>
+      <a href="#tipos">Tipos</a>
+      <a href="#ciber">Ciberviolência</a>
+      <a href="#corpo">O corpo sente</a>
+      <a href="#apoio">Rede de apoio</a>
+      <a href="#conversa">Roda de conversa</a>
+    </nav>
+    <a class="exit" id="exitBtn" href="https://www.google.com/search?q=previs%C3%A3o+do+tempo" target="_blank" rel="noopener" title="Esconde esta página na hora">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      Sair
+    </a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <h1>Mulheres em situação de <span class="mark">violência<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 20 C 60 6, 120 28, 180 14 S 270 10, 296 18"/></svg></span></h1>
+      <p class="lead">Pegue uma folha A4 e <strong>desenhe o que você entende por violência contra a mulher</strong>. Depois, conheça os tipos de violência, o que ela faz com o corpo e <strong>o caminho para pedir ajuda</strong>.</p>
+      <div class="cta">
+        <a class="btn btn-sun" href="#desenhar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Desenhar no A4</a>
+        <a class="btn btn-coral" href="#apoio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Preciso de ajuda</a>
+        <a class="btn btn-ghost" href="#tipos">Conhecer os tipos</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="sheet-demo">
+        <div class="tape"></div>
+        <p class="q">O que você entende por violência contra a mulher?</p>
+        <svg viewBox="0 0 200 220">
+          <path class="draw" style="--len:520" stroke="#e2405c" stroke-width="7" d="M100 190 C 30 140, 18 80, 58 62 C 80 52, 96 66, 100 84 C 104 66, 120 52, 142 62 C 182 80, 170 140, 100 190 Z"/>
+          <path class="draw" style="--len:160;animation-delay:1.6s" stroke="#3d1452" stroke-width="6" d="M70 104 L 130 150 M 130 104 L 70 150"/>
+          <path class="draw" style="--len:260;animation-delay:2.2s" stroke="#7a35a3" stroke-width="3" d="M20 210 C 50 200, 80 214, 110 205 S 160 200, 185 208"/>
+        </svg>
+      </div>
+      <span class="sticker s1">Não é não!</span>
+      <span class="sticker s2">Eu acredito em você</span>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#desenhar" style="text-decoration:none">role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></a>
+</section>
+
+
+<!-- ATIVIDADE A4 -->
+<section class="block" id="desenhar">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Atividade lúdica</span>
+      <h2>Uma folha A4, <em>um olhar seu</em></h2>
+      <p>Não existe desenho certo ou errado. Use cores, carimbos e palavras de apoio para mostrar o que você entende por violência contra a mulher, ou como seria uma rede que protege. Depois salve a folha ou cole no mural coletivo.</p>
+    </div>
+
+    <div class="studio">
+      <div class="tools" role="toolbar" aria-label="Ferramentas de desenho">
+        <button class="tool" data-tool="pen" aria-pressed="true" aria-label="Lápis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span class="tip">Lápis</span></button>
+        <button class="tool" data-tool="marker" aria-pressed="false" aria-label="Marca-texto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg><span class="tip">Marca-texto</span></button>
+        <button class="tool" data-tool="eraser" aria-pressed="false" aria-label="Borracha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 21-4.3-4.3a1 1 0 0 1 0-1.4l10-10a1 1 0 0 1 1.4 0l5.6 5.6a1 1 0 0 1 0 1.4L11 21"/><path d="M22 21H7M5 11l9 9"/></svg><span class="tip">Borracha</span></button>
+        <button class="tool" data-tool="stamp" aria-pressed="false" aria-label="Carimbos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-9.4-9.3C1.2 8.3 3.3 4.5 7 4.5c2 0 3.6 1.1 5 2.9 1.4-1.8 3-2.9 5-2.9 3.7 0 5.8 3.8 4.4 7.2C19.5 16.4 12 21 12 21z"/></svg><span class="tip">Carimbos</span></button>
+        <button class="tool" data-tool="word" aria-pressed="false" aria-label="Palavras de apoio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg><span class="tip">Palavras de apoio</span></button>
+        <hr>
+        <button class="tool" id="undoBtn" aria-label="Desfazer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-15-6.7L3 13"/></svg><span class="tip">Desfazer</span></button>
+        <button class="tool" id="clearBtn" aria-label="Limpar folha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg><span class="tip">Limpar folha</span></button>
+      </div>
+
+      <div class="sheet-wrap">
+        <div class="sheet">
+          <div class="tape"></div>
+          <div class="tape r"></div>
+          <canvas id="a4" aria-label="Folha A4 para desenhar"></canvas>
+        </div>
+        <div class="sheet-meta">
+          <span class="chip" id="toolLabel">Lápis · roxo</span>
+          <span>Desenhe com o dedo, caneta ou mouse</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="card prompt-card">
+          <span class="label">Tema da folha</span>
+          <p class="q" id="promptText">O que você entende por violência contra a mulher?</p>
+          <button class="btn btn-sun btn-sm" id="promptBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>Trocar tema</button>
+        </div>
+
+        <div class="card" id="optPen">
+          <span class="label">Cor</span>
+          <div class="swatches" id="swatches"></div>
+          <span class="label" style="margin-top:14px">Espessura</span>
+          <div class="sizes" id="sizes">
+            <button class="size" data-size="6" aria-label="Fina" aria-pressed="false"><i style="width:6px;height:6px"></i></button>
+            <button class="size" data-size="14" aria-label="Média" aria-pressed="true"><i style="width:12px;height:12px"></i></button>
+            <button class="size" data-size="30" aria-label="Grossa" aria-pressed="false"><i style="width:20px;height:20px"></i></button>
+          </div>
+          <div id="stampOpts" hidden>
+            <span class="label" style="margin-top:14px">Carimbo (toque na folha)</span>
+            <div class="stamps" id="stamps"></div>
+          </div>
+          <div id="wordOpts" hidden>
+            <span class="label" style="margin-top:14px">Palavra (toque na folha)</span>
+            <div class="words" id="wordList"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Terminou?</h3>
+          <div class="field">
+            <label class="label" for="capInput">Legenda do desenho</label>
+            <input id="capInput" maxlength="80" placeholder="Ex.: violência também é silêncio">
+          </div>
+          <div class="field">
+            <label class="label" for="nameInput">Seu nome (opcional)</label>
+            <input id="nameInput" maxlength="30" placeholder="Pode ficar em branco">
+          </div>
+          <div class="row">
+            <button class="btn btn-coral btn-sm" id="postBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v5M9 10.8V5h6v5.8l3 2.2v2H6v-2z"/></svg>Colar no mural</button>
+            <button class="btn btn-soft btn-sm" id="saveBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Salvar imagem</button>
+          </div>
+          <p class="hint" style="margin-top:10px">Desenhou no papel? <label for="photoInput" style="color:var(--violet);font-weight:800;cursor:pointer;text-decoration:underline">Envie uma foto da folha</label> e ela vai para o mural.</p>
+          <input type="file" id="photoInput" accept="image/*" class="sr">
+        </div>
+      </div>
+    </div>
+
+    <div class="mural-head">
+      <div>
+        <span class="kicker">Colagem coletiva</span>
+        <h3>Mural das folhas A4</h3>
+      </div>
+      <span class="status" id="muralStatus"><i></i><span>Mural deste aparelho</span></span>
+    </div>
+    <div class="corkboard">
+      <div class="mural" id="mural"></div>
+      <div class="empty" id="muralEmpty">
+        <div class="ghost-sheet">Sua folha pode ser a primeira!</div>
+        <div class="ghost-sheet">desenhe ↑</div>
+        <div class="ghost-sheet">cole aqui</div>
+        <div class="ghost-sheet">ou envie a foto do papel</div>
+      </div>
+    </div>
+
+    <div class="wordwall">
+      <div class="card">
+        <span class="kicker">Dinâmica de empoderamento</span>
+        <h3 style="font-size:1.6rem;margin-top:8px">Palavras de apoio</h3>
+        <p class="hint" style="margin-bottom:12px">Escreva uma frase que você diria para uma mulher em situação de violência. Ela vira um bilhete no mural.</p>
+        <form id="wordForm" class="field" style="margin-bottom:10px">
+          <label class="sr" for="wordInput">Sua palavra de apoio</label>
+          <input id="wordInput" maxlength="60" placeholder="Ex.: Você não está sozinha">
+          <button class="btn btn-ink btn-sm" type="submit">Colar bilhete</button>
+        </form>
+        <span class="label">Ideias</span>
+        <div class="row" id="ideas"></div>
+      </div>
+      <div class="corkboard"><div class="notes" id="notes"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPOS -->
+<section class="block alt" id="tipos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Reconhecer é o primeiro passo</span>
+      <h2>Seis formas de <em>violência</em></h2>
+      <p>A Lei Maria da Penha (Lei 11.340/2006, art. 7º) define cinco formas de violência doméstica e familiar contra a mulher. A violência virtual atravessa todas elas. Toque em cada cartão para virar.</p>
+    </div>
+    <div class="types" id="types"></div>
+
+    <div class="quiz">
+      <div class="quiz-intro">
+        <span class="kicker" style="color:var(--sun)">Jogo rápido</span>
+        <h3>Isso é violência? Qual?</h3>
+        <p>Leia a situação e escolha o tipo de violência. Muitas vezes ela não deixa marca visível, e é por isso que precisamos aprender a nomear.</p>
+        <div class="score" id="score" aria-label="Progresso do jogo"></div>
+      </div>
+      <div class="quiz-card" aria-live="polite">
+        <span class="label" id="qCount">Situação 1 de 8</span>
+        <p class="scenario" id="scenario"></p>
+        <div class="answers" id="answers"></div>
+        <div class="feedback" id="feedback">Escolha uma resposta.</div>
+        <div class="row"><button class="btn btn-ink btn-sm" id="nextQ" disabled>Próxima situação</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CIBER -->
+<section class="block" id="ciber">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Violência virtual</span>
+      <h2>Ciberviolência <em>contra a mulher</em></h2>
+      <p>A internet não inventou o machismo, mas virou um amplificador dele. A velocidade das redes e a falsa sensação de anonimato servem para desqualificar e silenciar mulheres que ocupam espaços públicos. É uma violação de direitos humanos que atinge a dignidade psicológica da vítima.</p>
+    </div>
+    <div class="ciber">
+      <div class="tabs" role="tablist" id="cyTabs" aria-label="Formas de ciberviolência"></div>
+      <div class="tabpanel" role="tabpanel" id="cyPanel"></div>
+    </div>
+
+    <div class="laws">
+      <h3>Linha do tempo das leis</h3>
+      <div class="timeline"><div class="tl" id="tl"></div></div>
+      <div class="law-detail" id="lawDetail" aria-live="polite"></div>
+    </div>
+
+    <div class="todo">
+      <div><span class="n">1</span><b>Não apague nada</b><span>Mensagens, perfis e comentários são provas, mesmo que doam.</span></div>
+      <div><span class="n">2</span><b>Faça prints com data e link</b><span>Guarde em um lugar que o agressor não acesse (e-mail ou nuvem só sua).</span></div>
+      <div><span class="n">3</span><b>Denuncie na plataforma</b><span>Peça a remoção. Imagens íntimas devem ser retiradas após notificação da vítima (Marco Civil, art. 21).</span></div>
+      <div><span class="n">4</span><b>Registre a ocorrência</b><span>No Amapá: Delegacia de Crimes Cibernéticos, (96) 98436-3552, ou Delegacia da Mulher, (96) 98403-5882. A SaferNet também orienta.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CORPO -->
+<section class="block alt" id="corpo">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Conteúdo científico</span>
+      <h2>O corpo <em>sente</em> a violência</h2>
+      <p>Toda ameaça liga o sistema de estresse. Uma vez, ele protege. Ligado todos os dias, ele adoece. Siga o caminho do alarme no corpo, do medo até o cortisol.</p>
+    </div>
+
+    <div class="axis" id="axis"></div>
+    <div class="axis-detail" id="axisDetail" aria-live="polite"></div>
+    <div class="axis-controls">
+      <button class="btn btn-ink btn-sm" id="playAxis"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>Ver o alarme em sequência</button>
+    </div>
+
+    <div class="bodymap">
+      <div>
+        <div class="figure" id="figure">
+          <svg viewBox="0 0 200 420" aria-hidden="true">
+            <defs>
+              <linearGradient id="skin" x1="0" x2="1"><stop offset="0" style="stop-color:var(--surface)"/><stop offset="1" style="stop-color:var(--surface-2)"/></linearGradient>
+            </defs>
+            <g fill="url(#skin)" stroke="var(--violet)" stroke-width="3" stroke-linejoin="round">
+              <ellipse cx="100" cy="44" rx="30" ry="36"/>
+              <path d="M88 76 h24 v18 h-24z"/>
+              <path d="M58 98 C 70 90, 130 90, 142 98 L 150 200 C 152 220, 140 240, 136 252 L 64 252 C 60 240, 48 220, 50 200 Z"/>
+              <path d="M58 100 C 44 104, 38 120, 36 140 L 26 236 C 25 246, 38 248, 40 238 L 56 150"/>
+              <path d="M142 100 C 156 104, 162 120, 164 140 L 174 236 C 175 246, 162 248, 160 238 L 144 150"/>
+              <path d="M64 250 L 70 400 C 70 410, 92 410, 92 400 L 98 270 L 102 270 L 108 400 C 108 410, 130 410, 130 400 L 136 250 Z"/>
+            </g>
+            <path d="M70 40 q 6 -26 30 -30 q 26 4 32 30 q -4 -14 -32 -16 q -26 2 -30 16z" fill="var(--violet)" opacity=".85"/>
+            <path d="M60 230 C 80 244, 120 244, 140 230" fill="none" stroke="var(--violet)" stroke-width="2" stroke-dasharray="4 5" opacity=".6"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="modes" role="group" aria-label="Tipo de estresse">
+          <button class="mode" data-mode="agudo" aria-pressed="false">Estresse agudo</button>
+          <button class="mode" data-mode="cronico" aria-pressed="true">Estresse crônico</button>
+        </div>
+        <div class="organ" id="organ" aria-live="polite"></div>
+        <div class="organ-list" id="organList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APOIO -->
+<section class="block" id="apoio">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Sistema de apoio</span>
+      <h2>Rota de <em>apoio</em></h2>
+      <p>Responda duas perguntas e veja um caminho possível de ajuda. Nada do que você marcar aqui fica salvo, e o botão Sair esconde a página na hora.</p>
+    </div>
+
+    <div class="help">
+      <div class="wizard">
+        <div class="wiz-top"><b id="wizTitle">Passo 1 de 3</b><div class="wiz-steps" id="wizSteps"><i class="on"></i><i></i><i></i></div></div>
+        <div class="wiz-body" id="wizBody"></div>
+      </div>
+
+      <div>
+        <span class="label">Em Macapá e no Amapá</span>
+        <div class="contacts" id="contactsAP"></div>
+        <span class="label" style="margin-top:20px">Em todo o Brasil</span>
+        <div class="contacts" id="contacts"></div>
+        <div class="signal">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M30 92 L 26 52 C 24 44, 34 42, 36 50 L 38 60 L 38 22 C 38 14, 48 14, 48 22 L 48 50 L 50 14 C 50 6, 60 6, 60 14 L 60 50 L 64 20 C 64 12, 74 12, 74 20 L 72 56 L 78 42 C 82 34, 92 38, 88 48 L 76 78 C 72 88, 66 92, 60 92 Z" fill="#f6d2b8" stroke="#3d1452" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M46 52 L 66 74 M 66 52 L 46 74" stroke="#e2405c" stroke-width="7" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <b style="font-family:var(--f-display);font-size:1.2rem">Sinal Vermelho</b>
+            <p class="hint" style="font-size:.9rem">Se não puder falar, desenhe um X vermelho na palma da mão e mostre em uma farmácia participante. O atendente aciona a polícia (Lei 14.188/2021).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="safety">
+      <div class="sec-head" style="margin-bottom:16px">
+        <span class="kicker">Plano de segurança</span>
+        <h2 style="font-size:clamp(1.6rem,3.2vw,2.3rem)">Pequenos passos que protegem</h2>
+        <p>Marque o que já está pronto. É só um lembrete na tela: nada fica gravado neste aparelho.</p>
+      </div>
+      <div class="checks" id="safety"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONVERSA -->
+<section class="block" id="conversa" style="padding-top:0">
+  <div class="wrap">
+    <div class="talk">
+      <div>
+        <span class="kicker">Discussão crítica</span>
+        <p class="qtext" id="talkQ">Como a ciência pode ajudar a proteger a dignidade de uma mulher?</p>
+        <p class="count" id="talkCount">Pergunta 1 de 8</p>
+      </div>
+      <button class="btn btn-sun" id="talkBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>Sortear pergunta</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>Elas não estão sozinhas</b>
+      <p>Seminário sobre o tema Mulheres em situação de violência. Integração entre Ciências Naturais e Direitos Humanos: fisiologia do estresse, saúde reprodutiva e impactos da violência no corpo.</p>
+      <p style="margin-top:10px">Acadêmicos: Angelo Paulo, Fabiane Mourão, João Carlos e Lenilson Ramos.<br>Licenciatura em Pedagogia, Universidade do Estado do Amapá (UEAP).</p>
+    </div>
+    <div>
+      <p><b style="font-size:1rem">Base legal citada</b></p>
+      <ul>
+        <li>Lei 11.340/2006 · Maria da Penha</li>
+        <li>Lei 12.737/2012 · Carolina Dieckmann</li>
+        <li>Lei 12.965/2014 · Marco Civil da Internet, art. 21</li>
+        <li>Lei 13.718/2018 · art. 218-C do Código Penal</li>
+        <li>Lei 14.132/2021 · Perseguição (stalking)</li>
+        <li>Lei 14.188/2021 · Violência psicológica e Sinal Vermelho</li>
+      </ul>
+    </div>
+    <div class="logos">
+      <img src="img/logo-ueap.png" alt="UEAP, Universidade do Estado do Amapá">
+      <img src="img/logo-pedagogia.png" alt="Pedagogia UEAP">
+    </div>
+  </div>
+</footer>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal" id="modal" hidden><div class="modal-box" role="dialog" aria-modal="true" aria-label="Visualizar folha"><div id="modalBody"></div><div class="row"><button class="btn btn-soft btn-sm" id="modalClose">Fechar</button></div></div></div>
+<div id="cover" hidden><div class="wx"><div style="font-size:.9rem;color:#52606d">Previsão do tempo · hoje</div><div class="deg">27°</div><div>Parcialmente nublado · Umidade 64%</div><button id="uncover">voltar</button></div></div>
+
+<script>
+(() => {
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const hashRot = (s, m = 5) => { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) | 0; return ((Math.abs(h) % (m * 20)) / 10 - m).toFixed(1); };
+
+/* ---------- toast + confete ---------- */
+let toastT;
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 3200); }
+const cf = $('#confetti'), cx = cf.getContext('2d'); let parts = [], cfRun = false;
+function burst(x, y){
+  if (reduce) return;
+  cf.width = innerWidth * devicePixelRatio; cf.height = innerHeight * devicePixelRatio;
+  const cols = ['#e2405c', '#ffc23d', '#7a35a3', '#ff8fb1', '#23876a'];
+  for (let i = 0; i < 46; i++) parts.push({ x, y, vx: (Math.random() - .5) * 12, vy: -Math.random() * 12 - 3, r: Math.random() * 6 + 5, c: cols[i % 5], a: Math.random() * 6, life: 90 + Math.random() * 30, heart: i % 3 === 0 });
+  if (!cfRun){ cfRun = true; requestAnimationFrame(tick); }
+}
+function heartPath(ctx, x, y, s){ ctx.beginPath(); ctx.moveTo(x, y + s * .35); ctx.bezierCurveTo(x - s, y - s * .3, x - s * .45, y - s, x, y - s * .45); ctx.bezierCurveTo(x + s * .45, y - s, x + s, y - s * .3, x, y + s * .35); ctx.closePath(); }
+function tick(){
+  const d = devicePixelRatio; cx.clearRect(0, 0, cf.width, cf.height);
+  parts = parts.filter(p => p.life-- > 0);
+  for (const p of parts){ p.vy += .32; p.x += p.vx; p.y += p.vy; p.a += .1; cx.globalAlpha = Math.min(1, p.life / 40); cx.fillStyle = p.c;
+    if (p.heart){ heartPath(cx, p.x * d, p.y * d, p.r * d * 1.4); cx.fill(); }
+    else { cx.save(); cx.translate(p.x * d, p.y * d); cx.rotate(p.a); cx.fillRect(-p.r * d / 2, -p.r * d / 4, p.r * d, p.r * d / 2); cx.restore(); } }
+  cx.globalAlpha = 1;
+  if (parts.length) requestAnimationFrame(tick); else { cfRun = false; cx.clearRect(0, 0, cf.width, cf.height); }
+}
+const burstFrom = el => { const r = el.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2); };
+
+/* ---------- topo: progresso, nav ativa, sair rápido ---------- */
+const navLinks = $$('.nav a');
+const secs = navLinks.map(a => $(a.getAttribute('href')));
+function onScroll(){
+  const h = document.documentElement; $('#progress').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  let cur = -1; secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top < 140) cur = i; });
+  navLinks.forEach((a, i) => a.classList.toggle('on', i === cur));
+}
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+function quickExit(){ $('#cover').hidden = false; document.title = 'Previsão do tempo'; }
+$('#exitBtn').addEventListener('click', quickExit);
+$('#uncover').addEventListener('click', () => { $('#cover').hidden = true; document.title = 'Elas Não Estão Sozinhas'; });
+let lastEsc = 0;
+addEventListener('keydown', e => { if (e.key === 'Escape'){ if (!$('#modal').hidden){ $('#modal').hidden = true; return; } const n = Date.now(); if (n - lastEsc < 600) quickExit(); lastEsc = n; } });
+
+/* =========================================================
+   FOLHA A4
+   ========================================================= */
+const W = 1240, H = 1754;
+const view = $('#a4'); view.width = W; view.height = H;
+const vctx = view.getContext('2d');
+const base = Object.assign(document.createElement('canvas'), { width: W, height: H }), bctx = base.getContext('2d');
+const ink = Object.assign(document.createElement('canvas'), { width: W, height: H }), ictx = ink.getContext('2d');
+const live = Object.assign(document.createElement('canvas'), { width: W, height: H }), lctx = live.getContext('2d');
+
+const COLORS = [['roxo','#7a35a3'],['ameixa','#2a1235'],['coral','#e2405c'],['rosa','#ff8fb1'],['amarelo','#f2a900'],['verde','#23876a'],['azul','#2f6fd6'],['marrom','#8b5a3c']];
+const STAMPS = ['coracao','estrela','flor','sol','sinal'];
+const STAMP_NAMES = { coracao:'Coração', estrela:'Estrela', flor:'Flor', sol:'Sol', sinal:'X do Sinal Vermelho' };
+const WORDS = ['Você não está sozinha','Eu acredito em você','Não é não','A culpa não é sua','Respeito','Coragem','Liberdade','Ligue 180'];
+const PROMPTS = ['O que você entende por violência contra a mulher?','Desenhe uma violência que não deixa marca no corpo.','Como seria uma rede que protege as mulheres?','Desenhe um lugar onde ela se sinta segura.','O que a violência faz com o corpo e a mente?','Que mensagem você daria para quem sofre em silêncio?'];
+const S = { tool: 'pen', color: '#7a35a3', size: 14, stamp: 'coracao', word: WORDS[0], prompt: 0 };
+let actions = [], current = null;
+
+function drawBase(){
+  bctx.fillStyle = '#fffdf8'; bctx.fillRect(0, 0, W, H);
+  bctx.strokeStyle = 'rgba(122,53,163,.10)'; bctx.lineWidth = 2;
+  for (let y = 330; y < 1600; y += 62){ bctx.beginPath(); bctx.moveTo(70, y); bctx.lineTo(W - 70, y); bctx.stroke(); }
+  bctx.fillStyle = '#3d1452'; bctx.font = '800 54px "Nunito Sans", system-ui, sans-serif'; bctx.textBaseline = 'alphabetic';
+  wrapText(bctx, PROMPTS[S.prompt], 80, 146, W - 160, 70);
+  bctx.strokeStyle = '#e2405c'; bctx.lineWidth = 6; bctx.lineCap = 'round';
+  bctx.beginPath(); bctx.moveTo(80, 268); bctx.bezierCurveTo(360, 252, 700, 282, 1000, 262); bctx.stroke();
+  bctx.fillStyle = '#9a86a6'; bctx.font = '700 26px "Nunito Sans", system-ui, sans-serif';
+  bctx.fillText('PEDAGOGIA UEAP · SEMINÁRIO', 80, H - 70);
+}
+function wrapText(ctx, text, x, y, maxW, lh){
+  const words = text.split(' '); let line = '', yy = y;
+  for (const w of words){ const t = line ? line + ' ' + w : w; if (ctx.measureText(t).width > maxW && line){ ctx.fillText(line, x, yy); line = w; yy += lh; } else line = t; }
+  ctx.fillText(line, x, yy);
+}
+function composite(){
+  vctx.globalAlpha = 1; vctx.drawImage(base, 0, 0); vctx.drawImage(ink, 0, 0);
+  if (current && current.type === 'marker'){ vctx.globalAlpha = .38; vctx.drawImage(live, 0, 0); vctx.globalAlpha = 1; }
+}
+function strokePath(ctx, pts){
+  ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+  if (pts.length === 1){ ctx.lineTo(pts[0][0] + .1, pts[0][1]); }
+  for (let i = 1; i < pts.length - 1; i++){ const mx = (pts[i][0] + pts[i + 1][0]) / 2, my = (pts[i][1] + pts[i + 1][1]) / 2; ctx.quadraticCurveTo(pts[i][0], pts[i][1], mx, my); }
+  if (pts.length > 1){ const l = pts[pts.length - 1]; ctx.lineTo(l[0], l[1]); }
+  ctx.stroke();
+}
+function setStroke(ctx, a){ ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = a.color; ctx.lineWidth = a.type === 'marker' ? a.size * 2.6 : a.type === 'eraser' ? a.size * 2.2 : a.size; ctx.globalCompositeOperation = a.type === 'eraser' ? 'destination-out' : 'source-over'; }
+function renderAction(a){
+  if (a.type === 'pen' || a.type === 'eraser'){ setStroke(ictx, a); strokePath(ictx, a.pts); ictx.globalCompositeOperation = 'source-over'; }
+  else if (a.type === 'marker'){ lctx.clearRect(0, 0, W, H); setStroke(lctx, a); strokePath(lctx, a.pts); ictx.globalAlpha = .38; ictx.drawImage(live, 0, 0); ictx.globalAlpha = 1; lctx.clearRect(0, 0, W, H); }
+  else if (a.type === 'stamp') drawStamp(ictx, a.kind, a.x, a.y, a.s, a.color, a.rot);
+  else if (a.type === 'word') drawWord(ictx, a.text, a.x, a.y, a.color, a.rot);
+}
+function redrawAll(){ ictx.clearRect(0, 0, W, H); actions.forEach(renderAction); composite(); }
+
+function drawStamp(ctx, kind, x, y, s, color, rot){
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.fillStyle = color; ctx.strokeStyle = color; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if (kind === 'coracao'){ heartPath(ctx, 0, 0, s); ctx.fill(); }
+  else if (kind === 'estrela'){ ctx.beginPath(); for (let i = 0; i < 10; i++){ const r = i % 2 ? s * .42 : s; const an = -Math.PI / 2 + i * Math.PI / 5; ctx.lineTo(Math.cos(an) * r, Math.sin(an) * r); } ctx.closePath(); ctx.fill(); }
+  else if (kind === 'flor'){ for (let i = 0; i < 6; i++){ const an = i * Math.PI / 3; ctx.beginPath(); ctx.ellipse(Math.cos(an) * s * .5, Math.sin(an) * s * .5, s * .42, s * .3, an, 0, Math.PI * 2); ctx.fill(); } ctx.fillStyle = '#ffc23d'; ctx.beginPath(); ctx.arc(0, 0, s * .3, 0, Math.PI * 2); ctx.fill(); }
+  else if (kind === 'sol'){ ctx.beginPath(); ctx.arc(0, 0, s * .5, 0, Math.PI * 2); ctx.fill(); ctx.lineWidth = s * .12; for (let i = 0; i < 12; i++){ const an = i * Math.PI / 6; ctx.beginPath(); ctx.moveTo(Math.cos(an) * s * .68, Math.sin(an) * s * .68); ctx.lineTo(Math.cos(an) * s, Math.sin(an) * s); ctx.stroke(); } }
+  else if (kind === 'sinal'){ ctx.strokeStyle = '#e2405c'; ctx.lineWidth = s * .26; ctx.beginPath(); ctx.moveTo(-s * .6, -s * .6); ctx.lineTo(s * .6, s * .6); ctx.moveTo(s * .6, -s * .6); ctx.lineTo(-s * .6, s * .6); ctx.stroke(); }
+  ctx.restore();
+}
+function drawWord(ctx, text, x, y, color, rot){
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+  ctx.font = '800 46px "Nunito Sans", system-ui, sans-serif';
+  const w = ctx.measureText(text).width + 56, h = 84;
+  ctx.fillStyle = 'rgba(0,0,0,.12)'; roundRect(ctx, -w / 2 + 5, -h / 2 + 7, w, h, 18); ctx.fill();
+  ctx.fillStyle = color; roundRect(ctx, -w / 2, -h / 2, w, h, 18); ctx.fill();
+  ctx.fillStyle = (color === '#f2a900' || color === '#ff8fb1') ? '#2a1235' : '#ffffff';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, 0, 3);
+  ctx.restore();
+}
+function roundRect(ctx, x, y, w, h, r){ ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+
+function pos(e){ const r = view.getBoundingClientRect(); return [(e.clientX - r.left) * W / r.width, (e.clientY - r.top) * H / r.height]; }
+view.addEventListener('pointerdown', e => {
+  e.preventDefault(); const p = pos(e);
+  if (S.tool === 'stamp'){ const a = { type: 'stamp', kind: S.stamp, x: p[0], y: p[1], s: S.size * 3 + 34, color: S.color, rot: (Math.random() - .5) * .5 }; actions.push(a); renderAction(a); composite(); return; }
+  if (S.tool === 'word'){ const a = { type: 'word', text: S.word, x: p[0], y: p[1], color: S.color, rot: (Math.random() - .5) * .16 }; actions.push(a); renderAction(a); composite(); return; }
+  try { view.setPointerCapture(e.pointerId); } catch {}
+  current = { type: S.tool, color: S.color, size: S.size, pts: [p] };
+  if (current.type !== 'marker'){ setStroke(ictx, current); ictx.beginPath(); ictx.moveTo(p[0], p[1]); ictx.lineTo(p[0] + .1, p[1]); ictx.stroke(); ictx.globalCompositeOperation = 'source-over'; }
+  composite();
+});
+view.addEventListener('pointermove', e => {
+  if (!current) return;
+  const co = e.getCoalescedEvents ? e.getCoalescedEvents() : [];
+  const evs = co.length ? co : [e];
+  for (const ev of evs){
+    const p = pos(ev), pts = current.pts, prev = pts[pts.length - 1];
+    if (Math.hypot(p[0] - prev[0], p[1] - prev[1]) < 2) continue;
+    pts.push(p);
+    if (current.type === 'marker'){ lctx.clearRect(0, 0, W, H); setStroke(lctx, current); strokePath(lctx, pts); }
+    else if (pts.length >= 3){
+      const a = pts[pts.length - 3], b = pts[pts.length - 2], c = pts[pts.length - 1];
+      setStroke(ictx, current); ictx.beginPath(); ictx.moveTo((a[0] + b[0]) / 2, (a[1] + b[1]) / 2); ictx.quadraticCurveTo(b[0], b[1], (b[0] + c[0]) / 2, (b[1] + c[1]) / 2); ictx.stroke(); ictx.globalCompositeOperation = 'source-over';
+    } else { setStroke(ictx, current); ictx.beginPath(); ictx.moveTo(prev[0], prev[1]); ictx.lineTo(p[0], p[1]); ictx.stroke(); ictx.globalCompositeOperation = 'source-over'; }
+  }
+  composite();
+});
+const endStroke = () => {
+  if (!current) return;
+  const done = current; current = null;
+  if (done.type === 'marker'){ ictx.globalAlpha = .38; ictx.drawImage(live, 0, 0); ictx.globalAlpha = 1; lctx.clearRect(0, 0, W, H); }
+  else { const l = done.pts[done.pts.length - 1]; if (done.pts.length > 1){ setStroke(ictx, done); const b = done.pts[done.pts.length - 2]; ictx.beginPath(); ictx.moveTo((b[0] + l[0]) / 2, (b[1] + l[1]) / 2); ictx.lineTo(l[0], l[1]); ictx.stroke(); ictx.globalCompositeOperation = 'source-over'; } }
+  actions.push(done); composite();
+};
+view.addEventListener('pointerup', endStroke); view.addEventListener('pointercancel', endStroke);
+
+// controles
+const sw = $('#swatches');
+COLORS.forEach(([n, c]) => { const b = document.createElement('button'); b.className = 'sw'; b.style.background = c; b.dataset.color = c; b.dataset.name = n; b.setAttribute('aria-label', 'Cor ' + n); b.setAttribute('aria-pressed', c === S.color); sw.append(b); });
+sw.addEventListener('click', e => { const b = e.target.closest('.sw'); if (!b) return; S.color = b.dataset.color; $$('.sw').forEach(x => x.setAttribute('aria-pressed', x === b)); if (S.tool === 'eraser') setTool('pen'); updateLabel(); });
+$('#sizes').addEventListener('click', e => { const b = e.target.closest('.size'); if (!b) return; S.size = +b.dataset.size; $$('.size').forEach(x => x.setAttribute('aria-pressed', x === b)); updateLabel(); });
+const st = $('#stamps');
+STAMPS.forEach(k => { const b = document.createElement('button'); b.className = 'stamp'; b.dataset.stamp = k; b.setAttribute('aria-label', STAMP_NAMES[k]); b.setAttribute('aria-pressed', k === S.stamp); const c = document.createElement('canvas'); c.width = c.height = 80; c.style.width = '100%'; drawStamp(c.getContext('2d'), k, 40, 42, 30, k === 'sinal' ? '#e2405c' : '#7a35a3', 0); b.append(c); st.append(b); });
+st.addEventListener('click', e => { const b = e.target.closest('.stamp'); if (!b) return; S.stamp = b.dataset.stamp; $$('.stamp').forEach(x => x.setAttribute('aria-pressed', x === b)); updateLabel(); });
+const wl = $('#wordList');
+WORDS.forEach(w => { const b = document.createElement('button'); b.className = 'word'; b.textContent = w; b.setAttribute('aria-pressed', w === S.word); wl.append(b); });
+wl.addEventListener('click', e => { const b = e.target.closest('.word'); if (!b) return; S.word = b.textContent; $$('.word').forEach(x => x.setAttribute('aria-pressed', x === b)); updateLabel(); });
+const TOOL_NAMES = { pen: 'Lápis', marker: 'Marca-texto', eraser: 'Borracha', stamp: 'Carimbo', word: 'Palavra' };
+function setTool(t){ S.tool = t; $$('.tool[data-tool]').forEach(b => b.setAttribute('aria-pressed', b.dataset.tool === t)); $('#stampOpts').hidden = t !== 'stamp'; $('#wordOpts').hidden = t !== 'word'; view.style.cursor = (t === 'stamp' || t === 'word') ? 'copy' : 'crosshair'; updateLabel(); }
+function updateLabel(){ const cn = (COLORS.find(c => c[1] === S.color) || ['cor'])[0]; let l = TOOL_NAMES[S.tool]; if (S.tool === 'stamp') l += ' · ' + STAMP_NAMES[S.stamp]; else if (S.tool === 'word') l += ' · "' + S.word + '"'; if (S.tool !== 'eraser') l += ' · ' + cn; $('#toolLabel').textContent = l; }
+$$('.tool[data-tool]').forEach(b => b.addEventListener('click', () => setTool(b.dataset.tool)));
+$('#undoBtn').addEventListener('click', () => { if (!actions.length){ toast('Nada para desfazer.'); return; } actions.pop(); redrawAll(); });
+let clearArm = 0;
+$('#clearBtn').addEventListener('click', e => {
+  const b = e.currentTarget;
+  if (Date.now() - clearArm > 2500){ clearArm = Date.now(); toast('Toque de novo em "Limpar" para apagar a folha toda.'); b.style.borderColor = 'var(--coral)'; setTimeout(() => b.style.borderColor = '', 2500); return; }
+  clearArm = 0; b.style.borderColor = ''; actions = []; redrawAll(); toast('Folha limpa.');
+});
+$('#promptBtn').addEventListener('click', () => {
+  const q = $('#promptText'); q.classList.add('swap');
+  setTimeout(() => { S.prompt = (S.prompt + 1) % PROMPTS.length; q.textContent = PROMPTS[S.prompt]; q.classList.remove('swap'); drawBase(); composite(); }, 220);
+});
+addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && document.activeElement?.tagName !== 'INPUT'){ e.preventDefault(); $('#undoBtn').click(); } });
+
+drawBase(); composite(); updateLabel();
+if (document.fonts) document.fonts.ready.then(() => Promise.all([document.fonts.load('800 54px "Nunito Sans"'), document.fonts.load('800 46px "Nunito Sans"')])).then(() => { drawBase(); redrawAll(); }).catch(() => {});
+
+function sheetCanvas(scale = 1){
+  const c = document.createElement('canvas'); c.width = Math.round(W * scale); c.height = Math.round(H * scale);
+  const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(base, 0, 0, c.width, c.height); x.drawImage(ink, 0, 0, c.width, c.height); return c;
+}
+function showModal(html){ $('#modalBody').innerHTML = html; $('#modal').hidden = false; $('#modalClose').focus(); }
+$('#modalClose').addEventListener('click', () => $('#modal').hidden = true);
+$('#modal').addEventListener('click', e => { if (e.target.id === 'modal') $('#modal').hidden = true; });
+
+$('#saveBtn').addEventListener('click', async () => {
+  const c = sheetCanvas(1);
+  const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+  const dl = await getCap('downloads');
+  if (dl && blob){
+    try { await dl.save({ filename: 'minha-folha-a4.png', data: blob }); toast('Imagem salva.'); return; }
+    catch (err){ if (err && err.code === 'declined') return; }
+  }
+  showModal('<img alt="Sua folha A4" src="' + c.toDataURL('image/png') + '"><p class="hint">Segure o dedo (ou clique com o botão direito) na imagem e escolha "Salvar imagem".</p>');
+});
+
+/* =========================================================
+   CAPACIDADES (mural compartilhado + download)
+   ========================================================= */
+const capCache = {};
+function getCap(name){
+  if (!(name in capCache)){
+    capCache[name] = (window.claude && typeof window.claude.use === 'function') ? Promise.resolve(window.claude.use(name)).catch(() => null) : Promise.resolve(null);
+  }
+  return capCache[name];
+}
+const store = { db: null, canWrite: false, canEdit: false, remoteMural: [], remoteNotes: [] };
+const LS_M = 'elas-mural-local', LS_N = 'elas-notas-local';
+const lsGet = k => { try { return JSON.parse(localStorage.getItem(k) || '[]'); } catch { return []; } };
+const lsSet = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch { return false; } };
+let localMural = lsGet(LS_M), localNotes = lsGet(LS_N);
+
+function setStatus(kind, text){ const s = $('#muralStatus'); s.classList.toggle('live', kind === 'live'); s.querySelector('span').textContent = text; }
+
+async function initStore(){
+  const [db, user] = await Promise.all([getCap('db'), getCap('user')]);
+  if (!db){ setStatus('local', 'Mural deste aparelho'); return; }
+  store.db = db;
+  try { const w = user ? await user.can('data.write') : null; store.canWrite = w !== false; } catch { store.canWrite = true; }
+  try { store.canEdit = user ? await user.canEdit() : false; } catch {}
+  setStatus('wait', 'Conectando ao mural…');
+  let gotM = false;
+  const timer = setTimeout(() => { if (!gotM) setStatus('wait', 'Mural compartilhado indisponível agora'); }, 10000);
+  db.collection('mural').orderBy('t', 'desc').limit(80).onSnapshot(snap => {
+    store.remoteMural = snap.docs.map(d => ({ id: d.id, ...d.data(), remote: true }));
+    if (!snap.metadata.fromCache){ gotM = true; clearTimeout(timer); setStatus('live', store.canWrite ? 'Mural compartilhado · ao vivo' : 'Mural compartilhado · só leitura'); }
+    renderMural();
+  }, () => { clearTimeout(timer); store.db = null; setStatus('local', 'Mural deste aparelho'); renderMural(); });
+  db.collection('palavras').orderBy('t', 'desc').limit(120).onSnapshot(snap => {
+    store.remoteNotes = snap.docs.map(d => ({ id: d.id, ...d.data(), remote: true })); renderNotes();
+  }, () => {});
+}
+
+async function addShared(coll, data, localKey){
+  if (store.db && store.canWrite){
+    try { await store.db.collection(coll).add(data); return 'shared'; }
+    catch (err){
+      if (err && err.code === 'invalid_argument' && coll === 'mural' && JSON.stringify(data).length > 250000) { toast('A imagem ficou grande demais para o mural.'); return null; }
+      if (err && err.code === 'quota_exceeded'){ toast('O mural compartilhado está cheio. Peça para quem organiza liberar espaço.'); return null; }
+      if (err && err.code === 'invalid_argument') store.canWrite = false;
+    }
+  }
+  const list = localKey === LS_M ? localMural : localNotes;
+  list.unshift({ id: 'l' + Date.now().toString(36), ...data, local: true });
+  if (localKey === LS_M && list.length > 12) list.length = 12;
+  lsSet(localKey, list);
+  return 'local';
+}
+async function removeItem(coll, item){
+  if (item.remote && store.db){ try { await store.db.collection(coll).doc(item.id).delete(); toast('Removido do mural.'); } catch { toast('Não foi possível remover agora.'); } return; }
+  if (coll === 'mural'){ localMural = localMural.filter(x => x.id !== item.id); lsSet(LS_M, localMural); renderMural(); }
+  else { localNotes = localNotes.filter(x => x.id !== item.id); lsSet(LS_N, localNotes); renderNotes(); }
+}
+
+function renderMural(){
+  const items = [...localMural, ...store.remoteMural].sort((a, b) => (b.t || 0) - (a.t || 0));
+  const m = $('#mural'); m.innerHTML = '';
+  $('#muralEmpty').hidden = items.length > 0;
+  items.forEach(it => {
+    const b = document.createElement('button'); b.className = 'pin'; b.style.setProperty('--rot', hashRot(it.id, 4) + 'deg');
+    b.innerHTML = '<span class="tape"></span>' + (it.local ? '<span class="badge">SÓ AQUI</span>' : '') + '<img alt="Folha A4: ' + esc(it.legenda || 'desenho') + '" loading="lazy" src="' + esc(it.img) + '"><div class="cap">' + esc(it.legenda || 'Sem legenda') + '</div>' + (it.nome ? '<div class="who">' + esc(it.nome) + '</div>' : '');
+    b.addEventListener('click', () => openPin(it));
+    m.append(b);
+  });
+}
+function openPin(it){
+  const canDel = it.local || store.canEdit;
+  showModal('<img alt="" src="' + esc(it.img) + '"><p class="hand" style="font-size:1.15rem;line-height:1.3;font-weight:800">' + esc(it.legenda || 'Sem legenda') + '</p>' + (it.nome ? '<p class="hint">por ' + esc(it.nome) + '</p>' : '') + (it.local ? '<p class="hint">Esta folha está salva só neste aparelho.</p>' : '') + (canDel ? '<div class="row"><button class="btn btn-soft btn-sm" id="delPin">Remover do mural</button></div>' : ''));
+  const d = $('#delPin'); if (d) d.addEventListener('click', () => { $('#modal').hidden = true; removeItem('mural', it); });
+}
+async function postImage(dataUrl, src){
+  const legenda = $('#capInput').value.trim().slice(0, 80), nome = $('#nameInput').value.trim().slice(0, 30);
+  const where = await addShared('mural', { img: dataUrl, legenda, nome, t: Date.now() }, LS_M);
+  if (!where) return;
+  renderMural(); burstFrom(src);
+  toast(where === 'shared' ? 'Folha colada no mural coletivo!' : 'Folha colada no mural deste aparelho.');
+  $('#capInput').value = '';
+  document.getElementById('mural').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+}
+$('#postBtn').addEventListener('click', e => {
+  if (!actions.length){ toast('Desenhe alguma coisa na folha antes de colar no mural.'); return; }
+  const btn = e.currentTarget;
+  postImage(sheetCanvas(0.36).toDataURL('image/jpeg', 0.72), btn);
+});
+$('#photoInput').addEventListener('change', e => {
+  const f = e.target.files && e.target.files[0]; if (!f) return;
+  if (!f.type.startsWith('image/')){ toast('Escolha uma foto (JPG ou PNG).'); return; }
+  const img = new Image(); const url = URL.createObjectURL(f);
+  img.onload = () => {
+    const c = document.createElement('canvas'); c.width = 446; c.height = 631;
+    const x = c.getContext('2d'); x.fillStyle = '#fffdf8'; x.fillRect(0, 0, c.width, c.height);
+    const s = Math.max(c.width / img.width, c.height / img.height); const w = img.width * s, h = img.height * s;
+    x.drawImage(img, (c.width - w) / 2, (c.height - h) / 2, w, h); URL.revokeObjectURL(url);
+    postImage(c.toDataURL('image/jpeg', 0.72), $('#postBtn')); e.target.value = '';
+  };
+  img.onerror = () => { toast('Não consegui abrir essa foto. Tente outra imagem.'); URL.revokeObjectURL(url); };
+  img.src = url;
+});
+
+/* palavras de apoio */
+const NOTE_COLORS = ['#ffe58a', '#ffc9d6', '#d9c4f2', '#c6f0de', '#ffd8b0', '#c9e3ff'];
+const IDEAS = ['Você não está sozinha', 'Eu acredito em você', 'A culpa não é sua', 'Você merece respeito', 'Sua voz importa', 'Estamos juntas', 'Você é mais forte do que imagina', 'Pedir ajuda é coragem'];
+IDEAS.forEach(t => { const b = document.createElement('button'); b.className = 'idea'; b.type = 'button'; b.textContent = t; b.addEventListener('click', () => { $('#wordInput').value = t; $('#wordInput').focus(); }); $('#ideas').append(b); });
+function renderNotes(){
+  const items = [...localNotes, ...store.remoteNotes].sort((a, b) => (b.t || 0) - (a.t || 0));
+  const n = $('#notes'); n.innerHTML = '';
+  if (!items.length){ n.innerHTML = '<p class="hand" style="font-size:1.05rem;font-weight:700;color:var(--muted);line-height:1.3">Os bilhetes de apoio aparecem aqui. Escreva o primeiro!</p>'; return; }
+  items.forEach(it => {
+    const d = document.createElement('div'); d.className = 'note'; d.style.background = it.cor || NOTE_COLORS[0]; d.style.setProperty('--rot', hashRot(it.id, 4) + 'deg');
+    d.textContent = it.texto;
+    if (it.local || store.canEdit){ const x = document.createElement('button'); x.setAttribute('aria-label', 'Remover bilhete'); x.textContent = '✕'; x.addEventListener('click', () => removeItem('palavras', it)); d.append(x); }
+    n.append(d);
+  });
+}
+$('#wordForm').addEventListener('submit', async e => {
+  e.preventDefault(); const inp = $('#wordInput'); const texto = inp.value.trim().slice(0, 60);
+  if (!texto){ toast('Escreva uma palavra ou frase de apoio.'); inp.focus(); return; }
+  const where = await addShared('palavras', { texto, cor: NOTE_COLORS[Math.floor(Math.random() * NOTE_COLORS.length)], t: Date.now() }, LS_N);
+  if (!where) return;
+  inp.value = ''; renderNotes(); burstFrom(e.submitter || inp);
+  toast(where === 'shared' ? 'Bilhete colado no mural coletivo!' : 'Bilhete colado neste aparelho.');
+});
+renderMural(); renderNotes(); initStore();
+
+/* =========================================================
+   TIPOS
+   ========================================================= */
+const PSI_SVG = '<svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid meet"><rect width="300" height="200" fill="#e9d8f7"/><g fill="#3d1452" opacity=".88"><path d="M126 200 C 120 160, 128 128, 150 120 C 176 112, 196 132, 194 168 L 196 200Z"/><ellipse cx="160" cy="92" rx="34" ry="40"/></g><path d="M126 70 C 130 40, 186 36, 196 68 C 200 84, 196 96, 194 104 C 190 80, 176 66, 160 66 C 142 66, 130 80, 126 98 C 122 90, 122 80, 126 70Z" fill="#2a1235"/><g fill="none" stroke="#7a35a3" stroke-width="5" stroke-linecap="round"><path d="M40 52 c 10 -14 26 -14 30 0 c 4 14 -16 16 -14 4 c 2 -10 16 -8 18 2"/><path d="M228 36 c 14 -6 30 4 24 18 c -6 12 -22 4 -14 -6"/><path d="M60 140 l 22 -10 M 64 160 l 24 -4"/></g><g fill="#e2405c" font-family="Nunito Sans, Arial, sans-serif" font-weight="800" font-size="19"><text x="18" y="112">louca!</text><text x="292" y="104" text-anchor="end" font-size="16">ninguém vai</text><text x="292" y="124" text-anchor="end" font-size="16">acreditar</text></g><path d="M100 30 h 30 l -8 14 h 16 l -26 30 6 -22 h -16z" fill="#ffc23d"/></svg>';
+const TYPES = [
+  { k: 'fisica', n: 'Física', c: '#d6334f', img: 'img/fisica.jpg', d: 'Qualquer conduta que ofenda a integridade ou a saúde do corpo da mulher.', ex: ['Tapas', 'Socos', 'Empurrões', 'Chutes', 'Apertar o pescoço', 'Queimaduras', 'Agressão com objetos'] },
+  { k: 'psicologica', n: 'Psicológica', c: '#7a35a3', svg: PSI_SVG, d: 'Causa dano emocional, diminui a autoestima e controla comportamentos, crenças e decisões.', ex: ['Humilhação', 'Ameaças', 'Chantagem', 'Vigilância constante', 'Isolamento da família', 'Controle de roupas e celular'] },
+  { k: 'moral', n: 'Moral', c: '#5b2a86', img: 'img/moral.jpg', d: 'Calúnia, difamação ou injúria: atacar a honra e a reputação da mulher.', ex: ['Xingamentos', 'Espalhar mentiras', 'Acusar de traição', 'Expor a vida íntima', 'Chamar de louca'] },
+  { k: 'sexual', n: 'Sexual', c: '#c45500', img: 'img/sexual.jpg', d: 'Forçar ou constranger a presenciar, manter ou participar de relação sexual não desejada.', ex: ['Sexo forçado', 'Impedir contraceptivo', 'Forçar gravidez ou aborto', 'Obrigar a ver pornografia', 'Importunação'] },
+  { k: 'patrimonial', n: 'Patrimonial', c: '#1f5fa8', img: 'img/patrimonial.jpg', d: 'Reter, subtrair ou destruir bens, documentos, dinheiro ou instrumentos de trabalho.', ex: ['Quebrar o celular', 'Esconder documentos', 'Controlar o salário', 'Rasgar roupas', 'Impedir de trabalhar'] },
+  { k: 'virtual', n: 'Virtual', c: '#1b7a52', img: 'img/virtual.jpg', d: 'Assédio, ameaças, ofensas ou exposição de dados e imagens na internet e nas redes.', ex: ['Vazar fotos íntimas', 'Perfis falsos', 'Ataques em massa', 'Deepfake', 'Divulgar endereço'] },
+];
+const tg = $('#types');
+TYPES.forEach((t, i) => {
+  const b = document.createElement('button'); b.className = 'flip'; b.setAttribute('aria-pressed', 'false'); b.style.setProperty('--c', t.c);
+  b.setAttribute('aria-label', 'Violência ' + t.n + ': toque para ver exemplos');
+  b.innerHTML = '<div class="flip-inner"><div class="face front"><div class="pic' + (t.img ? '' : ' ill') + '">' + (t.img ? '<img alt="" src="' + t.img + '">' : t.svg) + '</div><div class="meta"><h3><small>Violência</small>' + t.n + '</h3><span class="turn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></span></div></div>' +
+    '<div class="face back"><h3>Violência ' + t.n + '</h3><p>' + t.d + '</p><ul>' + t.ex.map(x => '<li>' + x + '</li>').join('') + '</ul><p class="law">' + (t.k === 'virtual' ? 'Crimes como os do art. 218-C e 147-A do Código Penal' : 'Lei Maria da Penha, art. 7º') + '</p></div></div>';
+  b.addEventListener('click', () => b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true'));
+  tg.append(b);
+});
+
+/* quiz */
+const QUIZ = [
+  { s: '"Ele pega todo o meu salário e decide o que eu posso comprar."', a: 'patrimonial', e: 'Controlar ou reter o dinheiro da mulher é violência <b>patrimonial</b>.' },
+  { s: '"Depois que terminamos, ele mandou minhas fotos íntimas no grupo da escola."', a: 'virtual', e: 'É violência <b>virtual</b> e crime: divulgar imagem íntima sem consentimento (art. 218-C do Código Penal).' },
+  { s: '"Ele diz que eu sou louca e que ninguém vai acreditar em mim."', a: 'psicologica', e: 'Manipular e diminuir a autoestima é violência <b>psicológica</b>, crime pelo art. 147-B do Código Penal.' },
+  { s: '"Ele espalhou para a família inteira que eu traio ele, e é mentira."', a: 'moral', e: 'Espalhar mentiras que atacam a honra é violência <b>moral</b> (calúnia ou difamação).' },
+  { s: '"Ele esconde meu anticoncepcional porque quer que eu engravide."', a: 'sexual', e: 'Impedir o uso de método contraceptivo é violência <b>sexual</b>, segundo a Lei Maria da Penha.' },
+  { s: '"Numa discussão ele me empurrou contra a parede."', a: 'fisica', e: 'Empurrão é agressão ao corpo: violência <b>física</b>. Não precisa deixar marca para ser violência.' },
+  { s: '"Bloqueei ele, mas ele cria perfis novos todo dia para me mandar mensagem."', a: 'virtual', e: 'Perseguição insistente, inclusive on-line, é <b>stalking</b>, crime pela Lei 14.132/2021.' },
+  { s: '"Ele quebrou meu celular para eu não falar com ninguém."', a: 'patrimonial', e: 'Destruir objetos é violência <b>patrimonial</b>, e isolar a mulher também é violência <b>psicológica</b>. As formas costumam aparecer juntas.' },
+];
+let qi = 0, qRes = [];
+const scoreEl = $('#score'); QUIZ.forEach(() => scoreEl.append(document.createElement('i')));
+function renderQ(){
+  const q = QUIZ[qi]; $('#qCount').textContent = 'Situação ' + (qi + 1) + ' de ' + QUIZ.length;
+  $('#scenario').textContent = q.s; $('#feedback').innerHTML = 'Escolha uma resposta.'; $('#nextQ').disabled = true;
+  $('#nextQ').textContent = qi === QUIZ.length - 1 ? 'Ver resultado' : 'Próxima situação';
+  const an = $('#answers'); an.innerHTML = '';
+  TYPES.forEach(t => { const b = document.createElement('button'); b.className = 'ans'; b.textContent = t.n; b.dataset.k = t.k; b.addEventListener('click', () => answer(b)); an.append(b); });
+  $$('#score i').forEach((x, i) => { x.className = qRes[i] === true ? 'ok' : qRes[i] === false ? 'no' : i === qi ? 'now' : ''; });
+}
+function answer(b){
+  const q = QUIZ[qi], ok = b.dataset.k === q.a; qRes[qi] = ok;
+  $$('.ans').forEach(x => { x.disabled = true; if (x.dataset.k === q.a) x.classList.add('right'); });
+  if (!ok) b.classList.add('wrong'); else burstFrom(b);
+  $('#feedback').innerHTML = (ok ? 'Isso! ' : 'Quase. ') + q.e; $('#nextQ').disabled = false;
+  $$('#score i')[qi].className = ok ? 'ok' : 'no';
+}
+let qDone = false;
+$('#nextQ').addEventListener('click', () => {
+  if (qDone){ qDone = false; qi = 0; qRes = []; renderQ(); return; }
+  if (qi < QUIZ.length - 1){ qi++; renderQ(); return; }
+  const hits = qRes.filter(Boolean).length; qDone = true;
+  $('#scenario').textContent = 'Você acertou ' + hits + ' de ' + QUIZ.length + '.';
+  $('#answers').innerHTML = ''; $('#qCount').textContent = 'Resultado';
+  $('#feedback').innerHTML = hits >= 6 ? 'Ótimo olhar! Agora você sabe <b>nomear</b> a violência, e nomear ajuda a pedir ajuda.' : 'Viu como é difícil? Muitas formas de violência <b>não deixam marca</b>. Vale rever os cartões acima.';
+  const nb = $('#nextQ'); nb.textContent = 'Jogar de novo';
+  if (hits >= 6) burstFrom(nb);
+});
+renderQ();
+
+/* =========================================================
+   CIBER
+   ========================================================= */
+const CY = [
+  { t: 'Imagens íntimas vazadas', img: 'img/cy-imagens-ai.jpg', bg: '#8a3586', p: 'Fotos ou vídeos íntimos divulgados sem autorização, muitas vezes depois do fim de um relacionamento. O objetivo é humilhar em público e destruir a reputação da vítima. O material se espalha rápido em grupos de mensagens.', a: 'Crime desde 2018: art. 218-C do Código Penal. A pena aumenta quando quem divulga tinha relação íntima com a vítima.' },
+  { t: 'Cyberstalking', img: 'img/cy-stalking-ai.jpg', bg: '#0b2a5c', p: 'Perseguição digital obsessiva: o agressor monitora os passos e as interações da vítima e cria perfis falsos repetidamente para continuar mandando ameaças sempre que é bloqueado. Gera pânico e restringe a liberdade da mulher.', a: 'Crime de perseguição (art. 147-A), criado pela Lei 14.132/2021. A pena é maior quando a vítima é mulher por razões da condição de sexo feminino.' },
+  { t: 'Doxxing', img: 'img/cy-doxxing-ai.jpg', bg: '#f6f7f9', fit: 'contain', p: 'Divulgação de dados pessoais sem consentimento: endereço, telefone ou local de trabalho publicados em fóruns e redes. A intenção é incentivar que desconhecidos cometam assédio ou violência física contra ela no mundo real.', a: 'Pode configurar ameaça, perseguição e violação da Lei Geral de Proteção de Dados (LGPD).' },
+  { t: 'Deepfakes', img: 'img/cy-deepfake-ai.jpg', bg: '#26384a', fit: 'contain', p: 'Uso de inteligência artificial para criar falsas evidências hiper-realistas, como sobrepor o rosto de uma mulher em vídeos pornográficos dos quais ela nunca participou. É um material difamatório muito destrutivo e difícil de banir da rede.', a: 'Pode ser enquadrado como difamação, injúria e montagem de cena sexual sem consentimento (art. 216-B, parágrafo único).' },
+  { t: 'Ataques em massa', img: 'img/cy-odio-ai.jpg', bg: '#ffffff', fit: 'contain', p: 'Linchamentos virtuais coordenados contra mulheres que dão opinião ou ganham destaque. Uma multidão inunda as redes da vítima ao mesmo tempo com ofensas misóginas e ameaças de morte ou estupro, para intimidar e calar a voz feminina.', a: 'Ameaça (art. 147), injúria e incitação ao crime. Guarde os perfis e as mensagens antes de bloquear.' },
+];
+const tabs = $('#cyTabs');
+CY.forEach((c, i) => { const b = document.createElement('button'); b.className = 'tab'; b.setAttribute('role', 'tab'); b.id = 'cytab' + i; b.setAttribute('aria-selected', i === 0); b.setAttribute('aria-controls', 'cyPanel'); b.innerHTML = '<span class="n">' + (i + 1) + '</span>' + c.t; b.addEventListener('click', () => selCy(i)); tabs.append(b); });
+tabs.addEventListener('keydown', e => { const i = $$('.tab').findIndex(t => t.getAttribute('aria-selected') === 'true'); if (e.key === 'ArrowDown' || e.key === 'ArrowRight'){ e.preventDefault(); selCy((i + 1) % CY.length, true); } if (e.key === 'ArrowUp' || e.key === 'ArrowLeft'){ e.preventDefault(); selCy((i - 1 + CY.length) % CY.length, true); } });
+function selCy(i, focus){
+  $$('.tab').forEach((t, j) => { t.setAttribute('aria-selected', i === j); t.tabIndex = i === j ? 0 : -1; }); if (focus) $('#cytab' + i).focus();
+  const c = CY[i]; $('#cyPanel').setAttribute('aria-labelledby', 'cytab' + i);
+  $('#cyPanel').innerHTML = '<div class="img" style="background:' + c.bg + '"><img alt="" src="' + c.img + '" style="object-fit:' + (c.fit || 'contain') + '"></div><div class="txt"><span class="kicker">Forma ' + (i + 1) + ' de ' + CY.length + '</span><h3>' + c.t + '</h3><p>' + c.p + '</p><p class="alert"><b>Na lei:</b> ' + c.a + '</p></div>';
+}
+selCy(0);
+
+const LAWS = [
+  { y: '2006', n: 'Lei Maria da Penha', l: 'Lei 11.340/2006', t: 'Define as cinco formas de violência doméstica e familiar (física, psicológica, sexual, patrimonial e moral) e cria as medidas protetivas de urgência. Leva o nome de Maria da Penha Maia Fernandes, que ficou paraplégica após tentativas de feminicídio e lutou por quase 20 anos por justiça.' },
+  { y: '2012', n: 'Lei Carolina Dieckmann', l: 'Lei 12.737/2012', t: 'Primeiro grande marco sobre crimes digitais no Brasil. A atriz teve o computador invadido, 36 fotos íntimas furtadas e sofreu extorsão. Como não pagou, as fotos foram vazadas. Antes disso não havia punição específica para invadir computador ou celular (art. 154-A).' },
+  { y: '2014', n: 'Marco Civil da Internet', l: 'Lei 12.965/2014, art. 21', t: 'Plataformas que não retiram imagens íntimas divulgadas sem autorização, depois de notificadas pela vítima, passam a responder pelo dano. A vítima pode pedir a remoção diretamente à plataforma.' },
+  { y: '2018', n: 'Art. 218-C do Código Penal', l: 'Lei 13.718/2018', t: 'Com o WhatsApp popular, homens insatisfeitos com o fim de relacionamentos passaram a vazar fotos íntimas de ex-companheiras para humilhá-las, a chamada "pornografia de vingança". Até 2018 havia um vácuo legal para punir quem espalhava essas imagens.' },
+  { y: '2021', n: 'Lei do Stalking', l: 'Lei 14.132/2021', t: 'Aprovada na pandemia, quando o uso da internet disparou. Mulheres relatavam que ex-parceiros criavam dezenas de perfis falsos para ameaçá-las todos os dias, e ouviam que "não dava para fazer nada porque era só na internet". A perseguição virou crime (art. 147-A).' },
+  { y: '2021', n: 'Violência psicológica', l: 'Lei 14.188/2021', t: 'Tornou crime a violência psicológica contra a mulher (art. 147-B) e criou o programa Sinal Vermelho: um X vermelho na mão funciona como pedido silencioso de socorro.' },
+];
+const tl = $('#tl');
+LAWS.forEach((l, i) => { const b = document.createElement('button'); b.setAttribute('aria-pressed', i === 1); b.innerHTML = '<span class="dot"></span><span class="yr">' + l.y + '</span><span class="nm">' + l.n + '</span>'; b.addEventListener('click', () => selLaw(i)); tl.append(b); });
+function selLaw(i){ $$('#tl button').forEach((b, j) => b.setAttribute('aria-pressed', i === j)); const l = LAWS[i]; $('#lawDetail').innerHTML = '<span class="tag">' + l.l + '</span><h4>' + l.n + '</h4><p>' + l.t + '</p>'; }
+selLaw(1);
+
+/* =========================================================
+   CORPO
+   ========================================================= */
+const AXIS = [
+  { n: 'Ameaça', w: 'amígdala', t: 'A <b>amígdala</b>, no cérebro, reconhece o perigo em milésimos de segundo, antes mesmo de a pessoa pensar. Um grito, um olhar ou uma mensagem já bastam para disparar o alarme.' },
+  { n: 'Hipotálamo', w: 'libera CRH', t: 'O <b>hipotálamo</b> recebe o alarme e libera o hormônio <b>CRH</b>. Ao mesmo tempo, o sistema nervoso simpático manda as glândulas adrenais soltarem <b>adrenalina</b>: é a reação imediata de luta ou fuga.' },
+  { n: 'Hipófise', w: 'libera ACTH', t: 'Estimulada pelo CRH, a <b>hipófise</b> lança o hormônio <b>ACTH</b> no sangue. Ele viaja pelo corpo até chegar às glândulas adrenais, em cima dos rins.' },
+  { n: 'Adrenais', w: 'liberam cortisol', t: 'As <b>glândulas adrenais</b> produzem <b>cortisol</b>, o hormônio do estresse. Ele aumenta a glicose no sangue para dar energia aos músculos e ao cérebro.' },
+  { n: 'Corpo em alerta', w: 'luta ou fuga', t: 'O coração acelera, a pressão sobe, a respiração fica curta e os músculos se contraem. Funções "não urgentes", como <b>digestão, imunidade e reprodução</b>, são colocadas em pausa.' },
+  { n: 'Freio', w: 'retroalimentação', t: 'Normalmente o próprio cortisol avisa o hipotálamo para <b>desligar</b> o alarme. Na violência repetida, o perigo nunca acaba: o freio falha e o corpo vive em <b>estresse crônico</b>, que adoece.' },
+];
+const ax = $('#axis');
+AXIS.forEach((a, i) => { const b = document.createElement('button'); b.className = 'step'; b.setAttribute('aria-pressed', i === 0); b.innerHTML = '<span class="n">' + (i + 1) + '</span><b>' + a.n + '</b><small>' + a.w + '</small>'; b.addEventListener('click', () => { stopPlay(); selAxis(i); }); ax.append(b); });
+function selAxis(i){ $$('.step').forEach((b, j) => b.setAttribute('aria-pressed', i === j)); $('#axisDetail').innerHTML = '<span class="big">' + (i + 1) + '</span><p>' + AXIS[i].t + '</p>'; }
+selAxis(0);
+let playT = null;
+function stopPlay(){ clearInterval(playT); playT = null; $('#playAxis').lastChild.textContent = 'Ver o alarme em sequência'; }
+$('#playAxis').addEventListener('click', () => {
+  if (playT){ stopPlay(); return; }
+  let i = 0; selAxis(0); $('#playAxis').lastChild.textContent = 'Pausar';
+  playT = setInterval(() => { i++; if (i >= AXIS.length){ stopPlay(); return; } selAxis(i); }, 3200);
+});
+
+const ORGANS = [
+  { k: 'cerebro', n: 'Cérebro e mente', x: 50, y: 10, ic: 'M12 4a4 4 0 0 0-4 4 4 4 0 0 0-2 7 4 4 0 0 0 6 4 4 4 0 0 0 6-4 4 4 0 0 0-2-7 4 4 0 0 0-4-4z',
+    agudo: ['Medo intenso e alerta máximo', 'Dificuldade de pensar com calma e de lembrar detalhes', 'Reação de congelar, lutar ou fugir'],
+    cronico: ['Ansiedade, depressão e insônia', 'Transtorno de estresse pós-traumático (TEPT)', 'Hipocampo (memória) prejudicado e amígdala hiperativa', 'Maior risco de uso de álcool e outras drogas'], d: 'Direito à saúde mental e à dignidade' },
+  { k: 'coracao', n: 'Coração e vasos', x: 56, y: 32, ic: 'M12 20s-7-4.3-8.8-8.7C2 8 4 4.5 7.4 4.5c1.9 0 3.4 1 4.6 2.7 1.2-1.7 2.7-2.7 4.6-2.7C20 4.5 22 8 20.8 11.3 19 15.7 12 20 12 20z',
+    agudo: ['Taquicardia', 'Pressão arterial sobe', 'Respiração rápida e curta'],
+    cronico: ['Hipertensão', 'Maior risco de doenças cardiovasculares', 'Cansaço constante'], d: 'Direito à vida e à saúde' },
+  { k: 'imune', n: 'Defesas do corpo', x: 30, y: 38, ic: 'M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z',
+    agudo: ['Inflamação momentânea para proteger de ferimentos'],
+    cronico: ['Cortisol alto por muito tempo enfraquece a imunidade', 'Mais infecções e cicatrização mais lenta', 'Inflamação crônica no corpo'], d: 'Direito à saúde' },
+  { k: 'digestao', n: 'Estômago e intestino', x: 50, y: 48, ic: 'M8 4v5a4 4 0 0 0 4 4h1a3 3 0 0 1 0 6H9',
+    agudo: ['Náusea e "frio na barriga"', 'Digestão pausada', 'Perda de apetite'],
+    cronico: ['Gastrite e refluxo', 'Síndrome do intestino irritável', 'Alterações de peso'], d: 'Direito à saúde' },
+  { k: 'reprodutiva', n: 'Saúde reprodutiva', x: 50, y: 58, ic: 'M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 0v8m-3-3h6',
+    agudo: ['O eixo reprodutivo é colocado em pausa pelo estresse', 'Na violência sexual: risco de ISTs e de gravidez indesejada'],
+    cronico: ['Ciclo menstrual irregular ou ausente (o cortisol inibe o GnRH)', 'Dor pélvica crônica e dor nas relações', 'Na gestação: mais risco de parto prematuro e bebê com baixo peso', 'Violência sexual: procure atendimento em até 72 horas para profilaxia e contracepção de emergência'], d: 'Direitos sexuais e reprodutivos' },
+  { k: 'musculos', n: 'Músculos e marcas', x: 82, y: 44, ic: 'M6 15l6-9 6 9M9 15h6',
+    agudo: ['Músculos tensos, prontos para fugir', 'Na violência física: hematomas, cortes, fraturas e queimaduras'],
+    cronico: ['Dores crônicas e dor de cabeça tensional', 'Fadiga', 'Sequelas e incapacidades de agressões repetidas'], d: 'Direito à integridade física' },
+];
+let mode = 'cronico', organ = 'reprodutiva';
+const fig = $('#figure'), ol = $('#organList');
+ORGANS.forEach(o => {
+  const b = document.createElement('button'); b.className = 'hot'; b.style.left = o.x + '%'; b.style.top = o.y + '%'; b.dataset.k = o.k; b.setAttribute('aria-label', o.n);
+  b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="' + o.ic + '"/></svg>';
+  b.addEventListener('click', () => selOrgan(o.k)); fig.append(b);
+  const c = document.createElement('button'); c.className = 'idea'; c.dataset.k = o.k; c.textContent = o.n; c.addEventListener('click', () => selOrgan(o.k)); ol.append(c);
+});
+function selOrgan(k){
+  organ = k; const o = ORGANS.find(x => x.k === k);
+  $$('.hot').forEach(b => b.setAttribute('aria-pressed', b.dataset.k === k));
+  $$('#organList .idea').forEach(b => b.style.borderColor = b.dataset.k === k ? 'var(--coral)' : '');
+  $('#organ').innerHTML = '<span class="tag">' + (mode === 'agudo' ? 'Estresse agudo · na hora' : 'Estresse crônico · dia após dia') + '</span><h3>' + o.n + '</h3><ul>' + o[mode].map(x => '<li>' + x + '</li>').join('') + '</ul><p class="rights"><b>Direito humano relacionado:</b> ' + o.d + '</p>';
+}
+$$('.mode').forEach(b => b.addEventListener('click', () => { mode = b.dataset.mode; $$('.mode').forEach(x => x.setAttribute('aria-pressed', x === b)); selOrgan(organ); }));
+selOrgan(organ);
+
+/* =========================================================
+   ROTA DE APOIO
+   ========================================================= */
+const CONTACTS = [
+  { n: '190', t: 'Polícia Militar', s: 'Emergência, perigo agora' },
+  { n: '180', t: 'Central de Atendimento à Mulher', s: '24h, gratuito, pode ser anônimo' },
+  { n: '(61) 9610-0180', t: 'WhatsApp do Ligue 180', s: 'Atendimento por mensagem', sm: true },
+  { n: '192', t: 'SAMU', s: 'Ferimentos ou mal-estar' },
+  { n: '100', t: 'Disque Direitos Humanos', s: 'Denúncias de violações de direitos' },
+  { n: 'SaferNet', t: 'new.safernet.org.br', s: 'Orientação e denúncia de crimes na internet', sm: true, link: 'https://new.safernet.org.br/denuncie' },
+];
+// rede local: Polícia Civil do AP, Prefeitura de Macapá, Governo do AP, Defensoria e TJAP
+const CONTACTS_AP = [
+  { n: '24h', t: 'Casa da Mulher Brasileira', s: 'Rua Floriano Waldeck, 284, São Lázaro, Macapá. Delegacia, Juizado, Defensoria, Promotoria e apoio psicossocial no mesmo lugar.', nocopy: true },
+  { n: '(96) 98403-5882', t: 'Delegacia da Mulher (DEAM)', s: 'Rua São José, s/nº, Centro, Macapá', sm: true },
+  { n: '(96) 99204-2606', t: 'CRAM Macapá', s: 'Apoio psicológico, social e jurídico. Av. Feliciano Coelho, 1146, Trem. Segunda a sexta, 8h às 18h', sm: true },
+  { n: '(96) 98133-0422', t: 'Defensoria Pública do Amapá', s: 'WhatsApp, segunda a sexta, 8h às 12h30. Orientação jurídica gratuita', sm: true },
+  { n: '(96) 99157-2916', t: 'CEVID do TJAP', s: 'Coordenadoria da Mulher do Tribunal de Justiça do Amapá', sm: true },
+  { n: '(96) 98436-3552', t: 'Delegacia de Crimes Cibernéticos', s: 'DR-CCIBER, CIOSP Zona Oeste, Rodovia Duca Serra, km 6, Marabaixo, Macapá', sm: true },
+];
+const ct = $('#contacts'), ctAP = $('#contactsAP');
+[...CONTACTS_AP.map(c => [c, ctAP]), ...CONTACTS.map(c => [c, ct])].forEach(([c, box]) => {
+  const d = document.createElement('div'); d.className = 'contact';
+  d.innerHTML = '<span class="n' + (c.sm ? ' sm' : '') + '">' + c.n + '</span><div><b>' + c.t + '</b><span>' + c.s + '</span></div>' + (c.link ? '<a class="copy" href="' + c.link + '" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">Abrir</a>' : c.nocopy ? '<span></span>' : '<button class="copy">Copiar</button>');
+  const btn = d.querySelector('button.copy');
+  if (btn) btn.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(c.n.replace(/\D/g, '')); btn.textContent = 'Copiado'; btn.classList.add('done'); setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('done'); }, 1800); }
+    catch { const r = document.createRange(); r.selectNodeContents(d.querySelector('.n')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast('Número selecionado. Copie com Ctrl+C ou segure o dedo.'); }
+  });
+  box.append(d);
+});
+
+const STEP_TYPES = { fisica: 'Física', psicologica: 'Psicológica', moral: 'Moral', sexual: 'Sexual', patrimonial: 'Patrimonial', virtual: 'Virtual', naosei: 'Não sei dizer' };
+const PLAN = {
+  fisica: ['Cuide do corpo primeiro', 'Procure uma UBS, UPA ou hospital. Peça que as lesões sejam registradas no prontuário e tire fotos. Em Macapá, a Casa da Mulher Brasileira atende 24 horas.'],
+  sexual: ['Vá a um serviço de saúde o quanto antes', 'Em até 72 horas há profilaxia contra HIV e outras ISTs e contracepção de emergência. O SUS atende sem exigir boletim de ocorrência (Lei 12.845/2013).'],
+  psicologica: ['Anote o que acontece', 'Um diário com datas, frases e testemunhas ajuda a provar. Peça apoio psicológico na UBS, no CAPS ou no CRAM. Violência psicológica é crime (art. 147-B).'],
+  moral: ['Guarde as provas', 'Prints, áudios e nomes de quem ouviu. Calúnia, difamação e injúria são crimes. A Defensoria Pública do Amapá orienta de graça pelo WhatsApp (96) 98133-0422.'],
+  patrimonial: ['Proteja seus documentos e seu dinheiro', 'Guarde cópias com alguém de confiança. A Defensoria Pública do Amapá, (96) 98133-0422, pode pedir a devolução de bens dentro da medida protetiva.'],
+  virtual: ['Não apague nada e faça prints', 'Salve com data e link e denuncie na plataforma. No Amapá, procure a Delegacia de Crimes Cibernéticos, (96) 98436-3552, ou a SaferNet. Imagens íntimas devem ser removidas após sua notificação.'],
+  naosei: ['Ligue 180 para conversar', 'As atendentes ajudam a entender o que está acontecendo e indicam o serviço mais perto de você.'],
+};
+let wiz = { step: 0, danger: null, sel: new Set() };
+const WCHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>';
+function renderWiz(){
+  $('#wizTitle').textContent = 'Passo ' + (wiz.step + 1) + ' de 3';
+  $$('#wizSteps i').forEach((x, i) => x.classList.toggle('on', i <= wiz.step));
+  const body = $('#wizBody');
+  if (wiz.step === 0){
+    body.innerHTML = '<h3>Você ou alguém está em perigo agora?</h3><div class="choice-row"><button class="big-choice danger" data-v="1"><b>Sim, agora</b><span>Há risco imediato</span></button><button class="big-choice" data-v="0"><b>Não neste momento</b><span>Quero entender e me organizar</span></button></div>';
+    $$('.big-choice', body).forEach(b => b.addEventListener('click', () => { wiz.danger = b.dataset.v === '1'; wiz.step = 1; renderWiz(); }));
+  } else if (wiz.step === 1){
+    body.innerHTML = (wiz.danger ? '<div class="emergency"><span class="num">190</span><b>Ligue agora para a Polícia Militar.</b><span>Se não puder falar, vá a uma farmácia e mostre um X vermelho na mão. Se houver ferimentos, ligue 192 (SAMU).</span></div>' : '') +
+      '<h3>O que está acontecendo?</h3><p class="hint">Marque tudo o que parece com a situação.</p><div class="checks">' +
+      Object.entries(STEP_TYPES).map(([k, n]) => '<button class="check" data-k="' + k + '" aria-pressed="' + wiz.sel.has(k) + '"><span class="box">' + WCHECK + '</span>' + n + '</button>').join('') +
+      '</div><div class="row"><button class="btn btn-soft btn-sm" id="wBack">Voltar</button><button class="btn btn-coral btn-sm" id="wNext"' + (wiz.sel.size ? '' : ' disabled') + '>Ver meu caminho</button></div>';
+    $$('.check', body).forEach(b => b.addEventListener('click', () => { const k = b.dataset.k; wiz.sel.has(k) ? wiz.sel.delete(k) : wiz.sel.add(k); b.setAttribute('aria-pressed', wiz.sel.has(k)); $('#wNext').disabled = !wiz.sel.size; }));
+    $('#wBack').addEventListener('click', () => { wiz.step = 0; renderWiz(); });
+    $('#wNext').addEventListener('click', e => { wiz.step = 2; renderWiz(); burstFrom(e.currentTarget); });
+  } else {
+    const items = [];
+    if (wiz.danger) items.push(['Segurança primeiro: ligue 190', 'Ou use o Sinal Vermelho em uma farmácia. Vá para um lugar com outras pessoas.']);
+    const order = ['sexual', 'fisica', 'virtual', 'psicologica', 'moral', 'patrimonial', 'naosei'];
+    order.filter(k => wiz.sel.has(k)).forEach(k => items.push(PLAN[k]));
+    items.push(['Fale com o Ligue 180', 'Gratuito, 24 horas, também pelo WhatsApp (61) 9610-0180. Orienta e indica os serviços da sua cidade.']);
+    items.push(['Peça uma medida protetiva', 'Em Macapá: Delegacia da Mulher (DEAM), (96) 98403-5882, na Rua São José, Centro, ou a Casa da Mulher Brasileira, aberta 24 horas na Rua Floriano Waldeck, 284, São Lázaro. O juiz pode afastar o agressor e proibir contato (Lei Maria da Penha).']);
+    items.push(['Busque acolhimento contínuo', 'CRAM Macapá, (96) 99204-2606, na Av. Feliciano Coelho, 1146, Trem, ou a Casa da Mulher Brasileira: apoio psicológico, social e jurídico.']);
+    body.innerHTML = '<h3>Um caminho possível</h3><p class="hint">Para: ' + [...wiz.sel].map(k => STEP_TYPES[k]).join(', ') + '. Você decide o ritmo; nenhum passo é obrigatório.</p><ol class="plan">' +
+      items.map((it, i) => '<li style="animation-delay:' + (i * 70) + 'ms"><div><b>' + it[0] + '</b><span>' + it[1] + '</span></div></li>').join('') +
+      '</ol><div class="row"><button class="btn btn-soft btn-sm" id="wBack">Ajustar respostas</button><button class="btn btn-ink btn-sm" id="wReset">Recomeçar</button></div>';
+    $('#wBack').addEventListener('click', () => { wiz.step = 1; renderWiz(); });
+    $('#wReset').addEventListener('click', () => { wiz = { step: 0, danger: null, sel: new Set() }; renderWiz(); });
+  }
+}
+renderWiz();
+
+const SAFETY = ['Cópias de RG, CPF e certidões guardadas com alguém de confiança', 'Uma palavra-código combinada com uma amiga ou parente', 'Celular carregado e números de ajuda salvos com nomes discretos', 'Um pouco de dinheiro e uma chave reserva fora de casa', 'Uma bolsa com roupas, remédios e documentos dos filhos', 'Saber para onde ir: casa de alguém, abrigo ou serviço da rede', 'Prints e provas guardados fora do celular compartilhado'];
+const sf = $('#safety');
+SAFETY.forEach(t => { const b = document.createElement('button'); b.className = 'check'; b.setAttribute('aria-pressed', 'false'); b.innerHTML = '<span class="box">' + WCHECK + '</span>' + t; b.addEventListener('click', () => { const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on); if (on && $$('#safety .check[aria-pressed="true"]').length === SAFETY.length){ burstFrom(b); toast('Plano completo. Cuide-se!'); } }); sf.append(b); });
+
+/* =========================================================
+   RODA DE CONVERSA
+   ========================================================= */
+const TALK = ['Como a ciência pode ajudar a proteger a dignidade de uma mulher?', 'Por que a violência psicológica é tão difícil de reconhecer?', 'O que muda quando a violência acontece na internet?', 'Que frase você diria para uma amiga que contou que está sofrendo violência?', 'Quais serviços da nossa cidade fazem parte da rede de apoio?', 'Como o estresse crônico pode adoecer o corpo mesmo sem marcas visíveis?', 'Qual é o papel dos homens no enfrentamento da violência contra a mulher?', 'Que direitos humanos são violados em cada tipo de violência?'];
+let ti = 0, bag = [];
+$('#talkBtn').addEventListener('click', e => {
+  if (!bag.length) bag = TALK.map((_, i) => i).filter(i => i !== ti).sort(() => Math.random() - .5);
+  ti = bag.pop(); const q = $('#talkQ'); q.classList.add('swap');
+  setTimeout(() => { q.textContent = TALK[ti]; $('#talkCount').textContent = 'Pergunta ' + (ti + 1) + ' de ' + TALK.length; q.classList.remove('swap'); }, 260);
+  burstFrom(e.currentTarget);
+});
+})();
+</script>
+</body>
+</html>
