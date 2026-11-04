@@ -384,6 +384,13 @@ section.block.alt{background:var(--surface-2)}
 .modes{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px}
 .mode{border:0;background:none;border-radius:999px;padding:8px 16px;font-weight:800;font-size:.9rem;color:var(--muted)}
 .mode[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.hot-label{position:absolute;top:50%;left:calc(100% + 8px);transform:translateY(-50%);white-space:nowrap;background:var(--surface);color:var(--ink);border:1px solid var(--line);font-size:.74rem;font-weight:800;padding:3px 9px;border-radius:999px;box-shadow:0 4px 10px -6px rgba(61,20,82,.5);pointer-events:none}
+.hot.esq .hot-label{left:auto;right:calc(100% + 8px)}
+.hot[aria-pressed="true"] .hot-label{background:var(--sun);color:var(--sun-ink);border-color:transparent}
+.body-hint{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;margin-bottom:14px;font-weight:700}
+.body-hint svg{width:18px;height:18px;flex:none;color:var(--coral)}
+.organ.flash{animation:flash 1s ease}
+@keyframes flash{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--sun) 80%,transparent)}40%{box-shadow:0 0 0 8px color-mix(in srgb,var(--sun) 45%,transparent)}100%{box-shadow:var(--shadow)}}
 .organ{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,3vw,28px);box-shadow:var(--shadow);display:grid;gap:12px}
 .organ h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;font-stretch:78%;text-transform:uppercase}
 .organ .tag{font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
@@ -717,6 +724,7 @@ footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
 
     <div class="bodymap">
       <div>
+        <p class="hint body-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5a2 2 0 0 1 4 0v6"/><path d="M13 9.5a2 2 0 0 1 4 0V12a7 7 0 0 1-7 7h-.5A6.5 6.5 0 0 1 5 15l-1.5-2.6a1.8 1.8 0 0 1 3.1-1.8L9 13"/></svg>Toque nos pontos do corpo para ver o que a violência provoca em cada parte.</p>
         <div class="figure" id="figure">
           <svg viewBox="0 0 200 420" aria-hidden="true">
             <defs>
@@ -1361,12 +1369,22 @@ const ORGANS = [
 ];
 let mode = 'cronico', organ = 'reprodutiva';
 const fig = $('#figure'), ol = $('#organList');
+// nome curto ao lado de cada ponto do corpo, e para que lado ele aparece
+const ROTULOS = { cerebro: ['Cérebro', 'd'], coracao: ['Coração', 'd'], imune: ['Defesas', 'e'], digestao: ['Digestão', 'd'], reprodutiva: ['Reprodução', 'd'], musculos: ['Músculos', 'd'] };
 ORGANS.forEach(o => {
-  const b = document.createElement('button'); b.className = 'hot'; b.style.left = o.x + '%'; b.style.top = o.y + '%'; b.dataset.k = o.k; b.setAttribute('aria-label', o.n);
-  b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="' + o.ic + '"/></svg>';
-  b.addEventListener('click', () => selOrgan(o.k)); fig.append(b);
-  const c = document.createElement('button'); c.className = 'idea'; c.dataset.k = o.k; c.textContent = o.n; c.addEventListener('click', () => selOrgan(o.k)); ol.append(c);
+  const b = document.createElement('button'); b.className = 'hot' + (ROTULOS[o.k][1] === 'e' ? ' esq' : ''); b.style.left = o.x + '%'; b.style.top = o.y + '%'; b.dataset.k = o.k; b.setAttribute('aria-label', o.n);
+  b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="' + o.ic + '"/></svg><span class="hot-label" aria-hidden="true">' + ROTULOS[o.k][0] + '</span>';
+  b.addEventListener('click', () => abrirOrgao(o.k)); fig.append(b);
+  const c = document.createElement('button'); c.className = 'idea'; c.dataset.k = o.k; c.textContent = o.n; c.addEventListener('click', () => abrirOrgao(o.k)); ol.append(c);
 });
+// ao tocar num ponto, a explicação aparece na tela e pisca para mostrar que mudou
+function abrirOrgao(k){
+  selOrgan(k);
+  const box = $('#organ');
+  box.classList.remove('flash'); void box.offsetWidth; box.classList.add('flash');
+  const r = box.getBoundingClientRect();
+  if (r.top < 70 || r.bottom > innerHeight) box.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' });
+}
 function selOrgan(k){
   organ = k; const o = ORGANS.find(x => x.k === k);
   $$('.hot').forEach(b => b.setAttribute('aria-pressed', b.dataset.k === k));
