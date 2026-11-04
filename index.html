@@ -118,6 +118,8 @@ p{margin:0}
 .btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
 
 .hero-art{position:relative;min-height:440px;display:grid;place-items:center}
+.hero-photo{position:relative;margin:0;width:min(400px,88%);max-width:100%;aspect-ratio:1200/1427;border-radius:999px 999px 28px 28px;overflow:hidden;border:6px solid rgba(255,255,255,.14);box-shadow:0 34px 60px -26px rgba(0,0,0,.75);background:#efe2f7}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .sheet-demo{position:relative;width:min(300px,72%);aspect-ratio:210/297;max-width:100%;background:var(--paper);color:var(--paper-ink);border-radius:4px;transform:rotate(-3deg);box-shadow:0 30px 50px -20px rgba(0,0,0,.6);padding:20px 18px;display:flex;flex-direction:column;z-index:2;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .sheet-demo:hover{transform:rotate(-1deg) scale(1.02)}
 .sheet-demo .q{font-family:var(--f-body);font-size:1.02rem;line-height:1.25;font-weight:800;color:var(--plum)}
@@ -509,18 +511,8 @@ footer .logos img{height:64px;width:auto;max-width:100%}
         <a class="btn btn-ghost" href="#tipos">Conhecer os tipos</a>
       </div>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <div class="sheet-demo">
-        <div class="tape"></div>
-        <p class="q">O que você entende por violência contra a mulher?</p>
-        <svg viewBox="0 0 200 220">
-          <path class="draw" style="--len:520" stroke="#e2405c" stroke-width="7" d="M100 190 C 30 140, 18 80, 58 62 C 80 52, 96 66, 100 84 C 104 66, 120 52, 142 62 C 182 80, 170 140, 100 190 Z"/>
-          <path class="draw" style="--len:160;animation-delay:1.6s" stroke="#3d1452" stroke-width="6" d="M70 104 L 130 150 M 130 104 L 70 150"/>
-          <path class="draw" style="--len:260;animation-delay:2.2s" stroke="#7a35a3" stroke-width="3" d="M20 210 C 50 200, 80 214, 110 205 S 160 200, 185 208"/>
-        </svg>
-      </div>
-      <span class="sticker s1">Não é não!</span>
-      <span class="sticker s2">Eu acredito em você</span>
+    <div class="hero-art">
+      <figure class="hero-photo"><img src="img/mulher.jpg" alt="Ilustração de uma mulher assustada, com um hematoma no olho, tendo a boca tapada por uma mão"></figure>
     </div>
   </div>
   <a class="scroll-cue" href="#desenhar" style="text-decoration:none">role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></a>
