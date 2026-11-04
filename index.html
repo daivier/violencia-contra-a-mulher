@@ -406,6 +406,42 @@ section.block.alt{background:var(--surface-2)}
 .organ-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 @media (max-width:860px){.bodymap{grid-template-columns:1fr}.figure{max-width:260px}}
 
+/* ---------- direitos humanos ---------- */
+.dh-quote{margin:0 0 clamp(36px,5vw,52px);position:relative;background:linear-gradient(135deg,var(--hero-a),var(--hero-b));color:#ffffff;border-radius:24px;padding:clamp(22px,4vw,40px) clamp(22px,4vw,48px) clamp(22px,4vw,40px) clamp(56px,8vw,96px);overflow:hidden}
+.dh-quote::before{content:"\201C";position:absolute;left:clamp(10px,2vw,22px);top:-12px;font-family:var(--f-display);font-weight:800;font-size:clamp(6rem,12vw,9rem);line-height:1;color:var(--sun)}
+.dh-quote p{font-family:var(--f-display);font-weight:800;font-stretch:85%;font-size:clamp(1.35rem,3vw,2.1rem);line-height:1.15;max-width:34ch;text-wrap:balance}
+.dh-quote cite{display:block;margin-top:12px;font-style:normal;font-weight:700;font-size:.9rem;color:#e2c9ef}
+.dh-sub{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:800;font-stretch:78%;text-transform:uppercase;margin:0 0 8px}
+.dh-hint{margin-bottom:16px}
+.dh-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.dh-tile{display:flex;align-items:center;gap:12px;text-align:left;border:2px solid var(--line);background:var(--surface);border-radius:18px;padding:14px 16px;font-weight:800;font-size:1rem;line-height:1.2;box-shadow:var(--shadow);transition:transform .15s,border-color .15s,background .15s}
+.dh-tile .ic{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--surface-2);color:var(--violet)}
+.dh-tile .ic svg{width:24px;height:24px}
+.dh-tile:hover{transform:translateY(-3px);border-color:var(--violet)}
+.dh-tile[aria-pressed="true"]{background:var(--violet);border-color:var(--violet);color:#ffffff}
+.dh-tile[aria-pressed="true"] .ic{background:rgba(255,255,255,.2);color:#ffffff}
+.dh-detail{margin:16px 0 clamp(40px,6vw,60px);background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--violet);border-radius:20px;padding:clamp(18px,3vw,28px);box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(16px,3vw,32px)}
+.dh-detail h4{margin:0 0 8px;font-family:var(--f-display);font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:800;font-stretch:80%;text-transform:uppercase}
+.dh-detail .lbl{display:block;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin:12px 0 8px}
+.dh-detail ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:.95rem}
+.dh-detail .chips{display:flex;flex-wrap:wrap;gap:6px}
+.dh-detail .chips span{color:#ffffff;font-weight:800;font-size:.84rem;padding:5px 12px;border-radius:999px}
+.dh-marcos{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,1fr);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 14px;margin-bottom:clamp(36px,5vw,52px)}
+.marco{scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow)}
+.marco .ano{align-self:flex-start;font-family:var(--f-display);font-weight:800;font-stretch:80%;font-size:1.5rem;line-height:1;color:var(--sun-ink);background:var(--sun);padding:5px 10px;border-radius:10px}
+.marco b{font-size:1rem;line-height:1.25}
+.marco span{font-size:.88rem;color:var(--muted)}
+.mv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.mv-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow)}
+.mv-card p.fr{font-family:var(--f-display);font-weight:800;font-stretch:88%;font-size:1.15rem;line-height:1.2}
+.mv-card .row .btn{flex:1}
+.mv-card .res{border-radius:12px;padding:10px 12px;font-size:.92rem;background:var(--surface-2)}
+.mv-card .res b{display:block;margin-bottom:2px}
+.mv-card.ok{border-color:var(--mint)}
+.mv-card.no{border-color:var(--coral)}
+@media (max-width:860px){.dh-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dh-detail{grid-template-columns:1fr}.mv{grid-template-columns:1fr}}
+@media (max-width:420px){.dh-tile{padding:12px;gap:10px;font-size:.92rem}.dh-tile .ic{width:38px;height:38px}}
+
 /* ---------- apoio ---------- */
 .help{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:start}
 .wizard{background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
@@ -522,6 +558,7 @@ footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
       <a href="#tipos">Tipos</a>
       <a href="#ciber">Ciberviolência</a>
       <a href="#corpo">O corpo sente</a>
+      <a href="#direitos">Direitos</a>
       <a href="#apoio">Rede de apoio</a>
       <a href="#conversa">Roda de conversa</a>
     </nav>
@@ -768,8 +805,35 @@ footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
   </div>
 </section>
 
+<!-- DIREITOS HUMANOS -->
+<section class="block" id="direitos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Direitos humanos</span>
+      <h2>Violência contra a mulher <em>viola direitos humanos</em></h2>
+      <p>Não é briga de casal nem assunto particular. Desde a Conferência de Viena, em 1993, a ONU afirma que os direitos das mulheres são direitos humanos. Quando uma mulher sofre violência, o que está em jogo é a vida, a dignidade, a liberdade e a igualdade.</p>
+    </div>
+
+    <blockquote class="dh-quote">
+      <p>"Toda mulher tem direito a ser livre de violência, tanto na esfera pública como na esfera privada."</p>
+      <cite>Convenção de Belém do Pará, art. 3º (1994)</cite>
+    </blockquote>
+
+    <h3 class="dh-sub">Quais direitos a violência viola?</h3>
+    <p class="hint dh-hint">Toque em um direito para ver que violências o desrespeitam e que leis o garantem.</p>
+    <div class="dh-grid" id="dhGrid"></div>
+    <div class="dh-detail" id="dhDetail" aria-live="polite"></div>
+
+    <h3 class="dh-sub">Marcos que garantem esses direitos</h3>
+    <div class="dh-marcos" id="dhMarcos"></div>
+
+    <h3 class="dh-sub">Mito ou verdade?</h3>
+    <div class="mv" id="mitos"></div>
+  </div>
+</section>
+
 <!-- APOIO -->
-<section class="block" id="apoio">
+<section class="block alt" id="apoio">
   <div class="wrap">
     <div class="sec-head">
       <span class="kicker">Sistema de apoio</span>
@@ -864,6 +928,8 @@ footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
         <li>Lei 13.718/2018 · art. 218-C do Código Penal</li>
         <li>Lei 14.132/2021 · Perseguição (stalking)</li>
         <li>Lei 14.188/2021 · Violência psicológica e Sinal Vermelho</li>
+        <li>Lei 13.104/2015 · Feminicídio</li>
+        <li>CEDAW (ONU, 1979) e Convenção de Belém do Pará (OEA, 1994)</li>
       </ul>
     </div>
   </div>
@@ -1410,6 +1476,80 @@ selOrgan(organ);
 /* =========================================================
    ROTA DE APOIO
    ========================================================= */
+/* direitos humanos */
+const DIREITOS = [
+  { k: 'vida', n: 'Direito à vida', ic: 'M2 12h4l2-5 4 10 2-5h8',
+    t: 'Nenhuma mulher pode ter a vida tirada. O feminicídio, o assassinato de uma mulher por ser mulher, é a violação mais extrema e muitas vezes vem depois de outras violências.',
+    leis: ['Declaração Universal dos Direitos Humanos, art. 3º', 'Constituição Federal, art. 5º', 'Lei do Feminicídio (Lei 13.104/2015)'], tipos: ['fisica', 'psicologica'] },
+  { k: 'integridade', n: 'Integridade física e mental', ic: 'M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z',
+    t: 'O corpo e a mente da mulher não podem ser feridos, ameaçados ou humilhados. Ninguém pode ser submetido a tratamento cruel ou degradante.',
+    leis: ['Constituição Federal, art. 5º, III', 'Convenção de Belém do Pará, art. 4º', 'Lei Maria da Penha, art. 7º'], tipos: ['fisica', 'psicologica', 'moral'] },
+  { k: 'sexual', n: 'Liberdade sexual e reprodutiva', ic: 'M8 12V6.5a1.5 1.5 0 0 1 3 0V11M11 11V5a1.5 1.5 0 0 1 3 0v6M14 11V6.5a1.5 1.5 0 0 1 3 0V14a6 6 0 0 1-6 6h-.5a5.5 5.5 0 0 1-4.7-2.7L4 14a1.6 1.6 0 0 1 2.7-1.7L8 14',
+    t: 'Cada mulher decide sobre o próprio corpo, a própria sexualidade e se quer ou não ter filhos. Forçar, constranger ou impedir o uso de contraceptivo viola esse direito.',
+    leis: ['CEDAW, art. 16 (decidir sobre filhos)', 'Código Penal, crimes contra a dignidade sexual', 'Lei Maria da Penha, art. 7º, III'], tipos: ['sexual'] },
+  { k: 'honra', n: 'Honra, imagem e privacidade', ic: 'M6 11h12v9H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3',
+    t: 'A intimidade, a vida privada, a honra e a imagem são invioláveis. Espalhar mentiras, expor fotos íntimas ou divulgar dados pessoais fere esse direito.',
+    leis: ['Constituição Federal, art. 5º, X', 'Declaração Universal dos Direitos Humanos, art. 12', 'Código Penal, art. 218-C'], tipos: ['moral', 'virtual'] },
+  { k: 'economia', n: 'Autonomia econômica', ic: 'M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H3zM3 7l11-4v4M16 13.5h2',
+    t: 'Trabalhar, ter o próprio dinheiro e administrar os próprios bens e documentos dá à mulher condições de sair de uma relação violenta.',
+    leis: ['CEDAW, arts. 11 e 13', 'Lei Maria da Penha, art. 7º, IV'], tipos: ['patrimonial'] },
+  { k: 'igualdade', n: 'Igualdade e liberdade', ic: 'M12 4v16M7 20h10M5 7h14M5 7l-3 6h6zM19 7l-3 6h6z',
+    t: 'Homens e mulheres são iguais em direitos. Toda mulher pode ir e vir, falar, estudar, trabalhar e participar da vida pública sem ser controlada ou silenciada.',
+    leis: ['Constituição Federal, art. 5º, I', 'Declaração Universal dos Direitos Humanos, art. 1º', 'Convenção de Belém do Pará, art. 6º'], tipos: ['psicologica', 'virtual'] },
+];
+const dhGrid = $('#dhGrid');
+DIREITOS.forEach((d, i) => {
+  const b = document.createElement('button'); b.className = 'dh-tile'; b.type = 'button'; b.dataset.k = d.k; b.setAttribute('aria-pressed', i === 0);
+  b.innerHTML = '<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + d.ic + '"/></svg></span>' + d.n;
+  b.addEventListener('click', () => selDireito(d.k, true)); dhGrid.append(b);
+});
+function selDireito(k, doClique){
+  const d = DIREITOS.find(x => x.k === k);
+  $$('.dh-tile').forEach(b => b.setAttribute('aria-pressed', b.dataset.k === k));
+  const tipos = d.tipos.map(t => TYPES.find(x => x.k === t)).map(t => '<span style="background:' + t.c + '">Violência ' + t.n.toLowerCase() + '</span>').join('');
+  const box = $('#dhDetail');
+  box.innerHTML = '<div><h4>' + d.n + '</h4><p>' + d.t + '</p><span class="lbl">Violado por</span><div class="chips">' + tipos + '</div></div><div><span class="lbl" style="margin-top:0">Garantido por</span><ul>' + d.leis.map(l => '<li>' + l + '</li>').join('') + '</ul></div>';
+  if (doClique){
+    const r = box.getBoundingClientRect();
+    if (r.top < 70 || r.bottom > innerHeight) box.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+  }
+}
+selDireito('vida', false);
+
+const MARCOS = [
+  { a: '1948', n: 'Declaração Universal dos Direitos Humanos', t: 'Todos nascem livres e iguais em dignidade e direitos.' },
+  { a: '1979', n: 'CEDAW', t: 'Convenção da ONU para eliminar todas as formas de discriminação contra a mulher. O Brasil assinou e ratificou em 1984.' },
+  { a: '1988', n: 'Constituição Federal', t: 'Homens e mulheres são iguais em direitos e o Estado deve coibir a violência nas relações familiares (art. 226, § 8º).' },
+  { a: '1993', n: 'Conferência de Viena', t: 'A ONU afirma que os direitos das mulheres e meninas são parte dos direitos humanos universais.' },
+  { a: '1994', n: 'Convenção de Belém do Pará', t: 'Primeiro tratado das Américas só sobre violência contra a mulher. O Brasil ratificou em 1995.' },
+  { a: '2001', n: 'Caso Maria da Penha na OEA', t: 'A Comissão Interamericana de Direitos Humanos responsabilizou o Brasil por omissão diante da violência que ela sofreu.' },
+  { a: '2006', n: 'Lei Maria da Penha', t: 'Resposta brasileira à decisão da OEA: define as formas de violência e cria as medidas protetivas.' },
+  { a: '2015', n: 'Lei do Feminicídio e ODS 5', t: 'O feminicídio vira crime hediondo, e a ONU coloca o fim da violência contra mulheres entre as metas da Agenda 2030.' },
+];
+$('#dhMarcos').innerHTML = MARCOS.map(m => '<article class="marco"><span class="ano">' + m.a + '</span><b>' + m.n + '</b><span>' + m.t + '</span></article>').join('');
+
+const MITOS = [
+  { f: '"Em briga de marido e mulher, ninguém mete a colher."', v: false, e: 'Violência doméstica é violação de direitos humanos, não assunto particular. Qualquer pessoa pode denunciar, inclusive de forma anônima pelo Ligue 180.' },
+  { f: 'Violência psicológica contra a mulher é crime no Brasil.', v: true, e: 'Desde 2021 ela é crime pelo art. 147-B do Código Penal (Lei 14.188/2021).' },
+  { f: 'Só é violência quando deixa marcas no corpo.', v: false, e: 'Humilhar, controlar, ameaçar, reter dinheiro e expor na internet também são violência, segundo a Lei Maria da Penha.' },
+  { f: 'O Brasil já foi responsabilizado internacionalmente por não proteger uma mulher.', v: true, e: 'Em 2001 a Comissão Interamericana de Direitos Humanos responsabilizou o Brasil no caso de Maria da Penha. Isso levou à criação da lei em 2006.' },
+];
+const mv = $('#mitos');
+MITOS.forEach(m => {
+  const c = document.createElement('div'); c.className = 'mv-card';
+  c.innerHTML = '<p class="fr">' + m.f + '</p><div class="row"><button class="btn btn-soft btn-sm" type="button" data-v="0">Mito</button><button class="btn btn-soft btn-sm" type="button" data-v="1">Verdade</button></div><div class="res" hidden></div>';
+  $$('button', c).forEach(b => b.addEventListener('click', () => {
+    const acertou = (b.dataset.v === '1') === m.v;
+    c.classList.remove('ok', 'no'); c.classList.add(acertou ? 'ok' : 'no');
+    $$('button', c).forEach(x => { x.classList.remove('btn-ink'); x.classList.add('btn-soft'); });
+    b.classList.remove('btn-soft'); b.classList.add('btn-ink');
+    const res = $('.res', c); res.hidden = false;
+    res.innerHTML = '<b>' + (acertou ? 'Acertou! ' : 'Não é bem assim. ') + 'É ' + (m.v ? 'verdade' : 'mito') + '.</b>' + m.e;
+    if (acertou) burstFrom(b);
+  }));
+  mv.append(c);
+});
+
 const CONTACTS = [
   { n: '190', t: 'Polícia Militar', s: 'Emergência, perigo agora' },
   { n: '180', t: 'Central de Atendimento à Mulher', s: '24h, gratuito, pode ser anônimo' },

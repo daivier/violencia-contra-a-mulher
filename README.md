@@ -11,6 +11,7 @@ Banner virtual interativo do seminário **Mulheres em situação de violência**
 - **Seis formas de violência:** física, psicológica, moral, sexual, patrimonial e virtual, com cartões que viram e um jogo de situações.
 - **Ciberviolência:** vazamento de imagens íntimas, cyberstalking, doxxing, deepfakes e ataques em massa, com a linha do tempo das leis.
 - **O corpo sente:** fisiologia do estresse (eixo hipotálamo, hipófise e adrenais), saúde reprodutiva e impactos da violência no corpo.
+- **Direitos humanos:** os direitos que a violência viola, as leis e tratados que os garantem, os marcos de 1948 a 2015 e um jogo de mito ou verdade.
 - **Rota de apoio:** um passo a passo de onde buscar ajuda, com os contatos da rede de Macapá e do Amapá e os canais nacionais (190, 180).
 - **Roda de conversa:** perguntas para a discussão crítica.
 
