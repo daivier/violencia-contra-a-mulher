@@ -453,15 +453,25 @@ section.block.alt{background:var(--surface-2)}
 .talk .count{font-size:.85rem;color:var(--on-band-muted);margin-top:12px;font-weight:700}
 @media (max-width:700px){.talk{grid-template-columns:1fr}}
 
-footer{background:var(--band);color:var(--on-band-muted);padding-block:40px 48px;margin-top:clamp(56px,8vw,96px)}
+footer{background:var(--band);color:var(--on-band-muted);padding-block:40px 48px}
 footer .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px}
 footer b{color:var(--on-band);font-family:var(--f-display);font-size:1.4rem;font-stretch:80%;text-transform:uppercase;display:block;margin-bottom:6px}
 footer p{font-size:.88rem}
 footer ul{margin:6px 0 0;padding-left:18px;font-size:.84rem}
-footer .logos{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(24px,6vw,64px);background:#ffffff;border-radius:18px;padding:18px 24px;margin-top:8px}
-footer .logos img{height:64px;width:auto;max-width:100%}
 @media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
-@media (max-width:460px){footer .logos{gap:18px;padding:14px 16px}footer .logos img{height:46px}}
+
+/* banner da instituição e da equipe, logo acima do rodapé (fundo branco por causa das logos, nos dois temas) */
+.creditos{padding-block:0 clamp(40px,6vw,72px)}
+.creditos-card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,4vw,40px);align-items:center;background:#ffffff;color:#3d1452;border-radius:22px;border-top:6px solid #7a35a3;padding:clamp(18px,3vw,28px) clamp(18px,3vw,32px);box-shadow:var(--shadow)}
+.creditos-marcas{display:flex;align-items:center;gap:clamp(16px,3vw,28px)}
+.creditos-marcas img{height:clamp(52px,7vw,72px);width:auto;max-width:100%}
+.creditos-marcas .sep{width:2px;align-self:stretch;background:#e0cdee;border-radius:2px}
+.creditos-equipe{background:#f2e6fb;border-radius:16px;padding:16px 20px;text-align:center;display:grid;gap:8px}
+.creditos-equipe .rot{font-family:var(--f-display);font-weight:800;font-stretch:85%;font-size:1.15rem;text-transform:uppercase;letter-spacing:.02em}
+.creditos-equipe ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,auto);justify-content:center;gap:4px 28px;font-weight:700;font-size:1.02rem}
+.creditos-equipe .curso{font-size:.88rem;color:#6a4a80;font-weight:600}
+@media (max-width:760px){.creditos-card{grid-template-columns:1fr}.creditos-marcas{justify-content:center}}
+@media (max-width:420px){.creditos-marcas img{height:44px}.creditos-equipe ul{grid-template-columns:1fr;gap:2px}}
 
 /* ---------- overlays ---------- */
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:14px;font-weight:700;font-size:.92rem;z-index:90;transition:transform .35s cubic-bezier(.2,1.4,.4,1);max-width:calc(100% - 32px);text-align:center}
@@ -788,7 +798,7 @@ footer .logos img{height:64px;width:auto;max-width:100%}
 </section>
 
 <!-- CONVERSA -->
-<section class="block" id="conversa" style="padding-top:0">
+<section class="block" id="conversa" style="padding-top:0;padding-bottom:clamp(28px,4vw,44px)">
   <div class="wrap">
     <div class="talk">
       <div>
@@ -800,6 +810,29 @@ footer .logos img{height:64px;width:auto;max-width:100%}
     </div>
   </div>
 </section>
+
+<!-- INSTITUIÇÃO E EQUIPE -->
+<section class="creditos" aria-label="Instituição e equipe">
+  <div class="wrap">
+    <div class="creditos-card">
+      <div class="creditos-marcas">
+        <img src="img/logo-ueap.png" alt="UEAP, Universidade do Estado do Amapá">
+        <span class="sep" aria-hidden="true"></span>
+        <img src="img/logo-pedagogia.png" alt="Curso de Pedagogia da UEAP">
+      </div>
+      <div class="creditos-equipe">
+        <span class="rot">Acadêmicos(as)</span>
+        <ul>
+          <li>Angelo Paulo</li>
+          <li>Fabiane Mourão</li>
+          <li>João Carlos</li>
+          <li>Lenilson Ramos</li>
+        </ul>
+        <span class="curso">Licenciatura em Pedagogia · Universidade do Estado do Amapá</span>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
@@ -807,7 +840,6 @@ footer .logos img{height:64px;width:auto;max-width:100%}
     <div>
       <b>Elas não estão sozinhas</b>
       <p>Seminário sobre o tema Mulheres em situação de violência. Integração entre Ciências Naturais e Direitos Humanos: fisiologia do estresse, saúde reprodutiva e impactos da violência no corpo.</p>
-      <p style="margin-top:10px">Acadêmicos: Angelo Paulo, Fabiane Mourão, João Carlos e Lenilson Ramos.<br>Licenciatura em Pedagogia, Universidade do Estado do Amapá (UEAP).</p>
     </div>
     <div>
       <p><b style="font-size:1rem">Base legal citada</b></p>
@@ -819,10 +851,6 @@ footer .logos img{height:64px;width:auto;max-width:100%}
         <li>Lei 14.132/2021 · Perseguição (stalking)</li>
         <li>Lei 14.188/2021 · Violência psicológica e Sinal Vermelho</li>
       </ul>
-    </div>
-    <div class="logos">
-      <img src="img/logo-ueap.png" alt="UEAP, Universidade do Estado do Amapá">
-      <img src="img/logo-pedagogia.png" alt="Pedagogia UEAP">
     </div>
   </div>
 </footer>
